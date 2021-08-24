@@ -1,0 +1,16 @@
+
+version: '2.0'
+
+services:
+  lnmp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: 'lnmp:latest'
+    volumes:
+      - ./site.conf:/etc/nginx/sites-available/default
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - 8080:80
+    container_name: lnmp
