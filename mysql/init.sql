@@ -1,3 +1,6 @@
+GRANT ALL PRIVILEGES ON *.* TO 'airdb' @'%';
+FLUSH PRIVILEGES;
+
 CREATE DATABASE `test`;
 
 USE `test`;

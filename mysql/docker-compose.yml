@@ -6,6 +6,7 @@ services:
     command: --init-file /srv/sql/init.sql
     volumes:
       - ./:/srv/sql/
+        #network_mode: "host"
     ports:
       - "3306:3306"
     environment:
