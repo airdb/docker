@@ -1,0 +1,12 @@
+FROM ubuntu:16.04
+
+MAINTAINER airdb.com
+
+ENV RUNNING_CONTEXT "docker"
+ENV echo "export RUNNING_CONTEXT=docker" >> /etc/profile
+
+RUN echo "export PS1='[\H \W]\\$ '" >> /root/.profile
+
+WORKDIR /srv
+
+RUN apt update && apt-get install -y sudo vim libpcre3-dev libssl-dev
