@@ -3,11 +3,11 @@ GRANT ALL PRIVILEGES ON *.* TO 'airdb' @'%';
 
 FLUSH PRIVILEGES;
 
-CREATE DATABASE `test`;
+CREATE DATABASE IF NOT EXISTS `test`;
 
 USE `test`;
 
-CREATE TABLE `user_tab` (
+CREATE TABLE IF NOT EXISTS `user_tab` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)

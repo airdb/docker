@@ -17,3 +17,6 @@ ps:
 
 bash:
 	sudo docker-compose exec testdb5 bash
+
+logs:
+	sudo docker-compose logs
