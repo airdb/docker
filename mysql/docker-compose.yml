@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  testdb5.7:
+  testdb5:
     image: 'mysql:5'
     command: --init-file /srv/sql/init.sql
     volumes:
@@ -15,4 +15,4 @@ services:
       - MYSQL_USER=airdb
       - MYSQL_PASSWORD=airdb
       - MYSQL_ROOT_HOST=%
-    container_name: testdb5.7
+    container_name: testdb5

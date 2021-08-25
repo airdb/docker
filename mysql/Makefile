@@ -16,4 +16,4 @@ ps:
 	sudo docker-compose ps
 
 bash:
-	sudo docker-compose exec testdb5.7 bash
+	sudo docker-compose exec testdb5 bash
