@@ -2,13 +2,14 @@ version: '3'
 
 services:
   toolbox:
+    platform: linux/amd64
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ../
+      dockerfile: ./dockerfile/Dockerfile
     image: 'airdb/toolbox:latest'
     command: sleep 3600
     volumes:
-      - ./:/srv/
+      - ./:/srv/toolbox
     ports:
       - "8080:8080"
     environment:
