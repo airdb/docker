@@ -17,3 +17,6 @@ ps:
 
 bash:
 	sudo docker-compose exec testdb8 bash
+
+logs:
+	sudo docker-compose logs

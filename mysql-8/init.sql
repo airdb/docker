@@ -1,9 +1,9 @@
-ALTER user 'root'@'%'IDENTIFIED BY 'root';
-GRANT ALL PRIVILEGES ON *.* TO 'root' @'%';
+update mysql.user set host = '%' where user = 'root' and host='localhost';
+update mysql.user set plugin='mysql_native_password' where user='root';
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
 
+FLUSH PRIVILEGES;
 CREATE USER 'airdb'@'%' IDENTIFIED BY 'airdb';
-
-GRANT ALL ON *.* TO 'airdb'@'localhost';
 GRANT ALL ON *.* TO 'airdb'@'%';
 
 FLUSH PRIVILEGES;
