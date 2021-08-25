@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  testdb5.7:
-    image: 'mysql:5'
-    command: --init-file /srv/sql/init.sql
+  testdb8:
+    image: 'mysql:8.0'
+    command: --default-authentication-plugin=mysql_native_password --init-file /srv/sql/init.sql
     volumes:
       - ./:/srv/sql/
         #network_mode: "host"
@@ -15,4 +15,4 @@ services:
       - MYSQL_USER=airdb
       - MYSQL_PASSWORD=airdb
       - MYSQL_ROOT_HOST=%
-    container_name: testdb5.7
+    container_name: testdb8
