@@ -13,6 +13,8 @@ ADD motd /etc/motd
 ADD Shanghai /etc/localtime
 ADD airdb.com.sh /etc/profile.d/
 
+RUN apk add --no-cache mysql-client
+
 WORKDIR /srv
 
 CMD ["/bin/sh", "--login"]
