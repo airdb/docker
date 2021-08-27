@@ -4,7 +4,10 @@ FROM ubuntu
 # docker build -t airdb/fpm . -f fpm.dockerfile
 # docker run --rm -v $(pwd):/srv airdb/fpm
 
-MAINTAINER airdb.com
+ENV DEBIAN_FRONTEND noninteractive
+
+MAINTAINER https://github.com/airdb
+
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 ENV RUNNING_CONTEXT "docker"
@@ -16,7 +19,8 @@ WORKDIR /srv
 
 RUN apt update && apt-get install -y sudo vim libgcrypt-dev libgd-dev ruby ruby-dev rubygems-integration build-essential
 
-RUN gem install --no-ri --no-rdoc fpm
+#RUN gem install --no-ri --no-rdoc fpm
+RUN gem install fpm
 
 CMD fpm -s dir \
 	-t deb \
