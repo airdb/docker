@@ -2,11 +2,13 @@
 
 #MAINTAINER https://github.com/airdb
 
+FROM ubuntu:20.04
+
 ## The INCLUDE+ instruction gets imported by the first line in the Dockerfile. 
 ## You can read more about the dockerfile-plus at https://github.com/edrevo/dockerfile-plus
 ## Remember that the file path is relative to the build context, not the Dockerfile path.
 ## It depends on docker-compose.yaml in this repo.
-INCLUDE+ ./dockerfile/Dockerfile.ubuntu.base
+INCLUDE+ ./dockerfile/Dockerfile.ubuntu.common
 
 #FROM ubuntu:16.04
 

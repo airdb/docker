@@ -19,5 +19,9 @@ ps:
 
 log logs:
 	sudo docker-compose logs
+
+rm: stop
+	sudo docker-compose rm ${SERVICE}
+
 bash:
 	sudo docker-compose exec ${SERVICE} bash
