@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  redoc:
+    platform: linux/amd64
+    build:
+      context: ../
+      dockerfile: ./dockerfile/Dockerfile.debian.redoc
+    image: 'airdb/redoc:latest'
+    #command: sleep 3600
+    volumes:
+      - ./:/srv/toolbox
+    ports:
+      - "8080:9090"
+    environment:
+      - env=test
+    container_name: redoc
