@@ -5,7 +5,7 @@ services:
     platform: linux/amd64
     build:
       context: ../
-      dockerfile: ./dockerfile/Dockerfile
+      dockerfile: ./dockerfile/Dockerfile.ubuntu.toolbox
     image: 'airdb/toolbox:latest'
     command: sleep 3600
     volumes:

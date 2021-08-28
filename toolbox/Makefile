@@ -1,3 +1,5 @@
+SERVICE := toolbox
+
 up:
 	sudo docker-compose up -d --build --force-recreate
 build:
@@ -15,5 +17,7 @@ restart:
 ps:
 	sudo docker-compose ps
 
+log logs:
+	sudo docker-compose logs
 bash:
-	sudo docker-compose exec toolbox bash
+	sudo docker-compose exec ${SERVICE} bash
