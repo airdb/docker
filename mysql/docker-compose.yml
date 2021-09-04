@@ -6,7 +6,7 @@ services:
     image: 'mysql:5'
     command: --init-file /srv/sql/init.sql
     volumes:
-      - ./:/srv/sql/
+      - ./:/srv/sql/:ro
         #network_mode: "host"
     ports:
       - "3306:3306"

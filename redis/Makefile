@@ -1,4 +1,4 @@
-SERVICE := testdb5
+SERVICE := redis
 
 up:
 	sudo docker-compose up -d --build --force-recreate
