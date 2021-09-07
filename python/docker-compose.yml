@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  airdb-python:
+    platform: linux/amd64
+    build:
+      context: ../
+      dockerfile: ./dockerfile/Dockerfile.ubuntu.python
+    image: 'airdb/python:latest'
+    command: sleep 3600
+    volumes:
+      - ./:/srv/toolbox
+    ports:
+      - "8080:8080"
+    environment:
+      - env=test
+      - BROWSERSTACK_USERNAME=l8pVcAzQzJwX5fKXkXQSx
+      - BROWSERSTACK_ACCESS_KEY=8pVcAzQzJwX5fKXkXQSx
+    container_name: airdb-python
