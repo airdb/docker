@@ -11,6 +11,7 @@ RUN apt-get install -y vim git curl
 
 #  apt-get install -y vim git nginx php7-fpm php-fpm
 
+WORKDIR /srv/
 ADD . /srv
 RUN chown www-data.www-data -R /srv
 
