@@ -1,7 +1,7 @@
 SERVICE := airdb-python
 
 up:
-	sudo docker-compose up -d --build --force-recreate
+	sudo docker-compose --env-file ~/.config/docker/env.browserstack up -d --build --force-recreate
 build:
 	sudo docker-compose build --no-cache
 

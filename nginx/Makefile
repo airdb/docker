@@ -1,4 +1,4 @@
-SERVICE := nginx
+SERVICE := airdb-nginx
 
 up:
 	sudo docker-compose up -d --build --force-recreate
