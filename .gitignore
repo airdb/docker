@@ -13,3 +13,7 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+#
+#
+# docker-compose container access key
+python/docker-compose.yml
