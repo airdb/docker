@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  asp:
+    platform: linux/amd64
+    build:
+      context: ../
+      dockerfile: ./dockerfile/Dockerfile.asp
+    image: 'airdb/asp:latest'
+    command: sleep 3600
+    volumes:
+      - ./:/srv/toolbox
+    ports:
+      - "8080:8080"
+    environment:
+      - env=test
+    container_name: asp

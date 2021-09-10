@@ -1,4 +1,4 @@
-SERVICE := nginx
+SERVICE := asp
 
 up:
 	sudo docker-compose up -d --build --force-recreate
