@@ -20,6 +20,9 @@ ps:
 log logs:
 	sudo docker-compose logs
 
+logf:
+	sudo docker-compose logs -f
+
 rm: stop
 	sudo docker-compose rm ${SERVICE}
 
