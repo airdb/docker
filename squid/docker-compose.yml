@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  squid:
+    platform: linux/amd64
+    build:
+      context: ../
+      dockerfile: ./dockerfile/Dockerfile.debian.squid
+    image: 'airdb/squid:latest'
+    command: sleep 3600
+    network_mode: host
+    volumes:
+      - ./:/srv/proxy
+    environment:
+      - env=test
+    container_name: squid
