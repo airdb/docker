@@ -1,19 +1,19 @@
 up:
-	sudo docker-compose up -d --build --force-recreate
+	docker compose up -d --build --force-recreate
 build:
-	sudo docker-compose build
+	docker compose build
 
 start:
-	sudo docker-compose start
+	docker compose start
 
 stop:
-	sudo docker-compose stop
+	docker compose stop
 
 restart:
-	sudo docker-compose restart
+	docker compose restart
 
 ps:
-	sudo docker-compose ps
+	docker compose ps
 
 bash:
-	sudo docker-compose exec lnmp bash
+	docker compose exec lnmp bash

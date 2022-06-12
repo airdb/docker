@@ -1,23 +1,23 @@
 SERVICE := redoc
 
 up:
-	sudo docker-compose up -d --build --force-recreate
+	docker compose up -d --build --force-recreate
 build:
-	sudo docker-compose build --no-cache
+	docker compose build --no-cache
 
 start:
-	sudo docker-compose start
+	docker compose start
 
 stop:
-	sudo docker-compose stop
+	docker compose stop
 
 restart:
-	sudo docker-compose restart
+	docker compose restart
 
 ps:
-	sudo docker-compose ps
+	docker compose ps
 
 log logs:
-	sudo docker-compose logs
+	docker compose logs
 bash:
-	sudo docker-compose exec ${SERVICE} bash
+	docker compose exec ${SERVICE} bash

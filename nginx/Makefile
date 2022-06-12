@@ -1,30 +1,30 @@
 SERVICE := nginx
 
 up:
-	sudo docker-compose up -d --build --force-recreate
+	docker compose up -d --build --force-recreate
 build:
-	sudo docker-compose build --no-cache
+	docker compose build --no-cache
 
 start:
-	sudo docker-compose start
+	docker compose start
 
 stop:
-	sudo docker-compose stop
+	docker compose stop
 
 restart:
-	sudo docker-compose restart
+	docker compose restart
 
 ps:
-	sudo docker-compose ps
+	docker compose ps
 
 log logs:
-	sudo docker-compose logs
+	docker compose logs
 
 logf:
-	sudo docker-compose logs -f
+	docker compose logs -f
 
 rm: stop
-	sudo docker-compose rm ${SERVICE}
+	docker compose rm ${SERVICE}
 
 bash:
-	sudo docker-compose exec ${SERVICE} bash
+	docker compose exec ${SERVICE} bash
