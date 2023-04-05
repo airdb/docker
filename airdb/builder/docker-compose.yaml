@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  builder:
+    container_name: builder
+    image: 'airdb/builder:latest'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000/tcp"
+    command: sleep 3600
+    volumes:
+      - ./:/srv/toolbox
+    environment:
+      - env=test

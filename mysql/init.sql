@@ -1,4 +1,5 @@
-GRANT ALL PRIVILEGES ON *.* TO 'root' @'%';
+#GRANT ALL PRIVILEGES ON *.* TO 'root' @'%';
+CREATE USER 'airdb'@'%' IDENTIFIED BY 'passwd';
 GRANT ALL PRIVILEGES ON *.* TO 'airdb' @'%';
 
 FLUSH PRIVILEGES;
