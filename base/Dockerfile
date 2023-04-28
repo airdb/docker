@@ -1,3 +1,12 @@
+FROM alpine:latest as builder
+
+WORKDIR /build
+
+RUN cd /build/ && \
+    wget http://nl.alpinelinux.org/alpine/latest-stable/releases/x86_64/alpine-minirootfs-3.17.0-x86_64.tar.gz && \
+    tar xvf alpine-minirootfs-3.17.0-x86_64.tar.gz
+
+
 FROM scratch
 
 LABEL description="Alpine minirootfs lastet stable" \
@@ -7,12 +16,13 @@ LABEL description="Alpine minirootfs lastet stable" \
 
 # Must download file to local. if use url to add it, it doesn't unpack.
 # wget http://nl.alpinelinux.org/alpine/latest-stable/releases/x86_64/alpine-minirootfs-3.7.0-x86_64.tar.gz
- 
-ADD alpine-minirootfs-3.17.0-x86_64.tar.gz  /
+# ADD alpine-minirootfs-3.17.0-x86_64.tar.gz  /
+
+COPY --from=builder /build /
 
 RUN apk add --no-cache tzdata bash tar gzip
 RUN cp /usr/share/zoneinfo/Asia/Singapore /etc/localtime
 
-WORKDIR /srv
+WORKDIR /app
 
 CMD ["/bin/bash", "--login"]
