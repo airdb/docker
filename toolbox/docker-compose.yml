@@ -3,7 +3,7 @@ version: '3'
 services:
   toolbox:
     build:
-      context: ../
+      context: .
       dockerfile: Dockerfile.ubuntu
     image: 'airdb/toolbox:latest'
     command: sleep 3600
