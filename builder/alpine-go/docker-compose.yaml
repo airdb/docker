@@ -1,8 +1,8 @@
-version: '3.3'
+version: '3.9'
 services:
   builder:
     container_name: builder
-    image: 'airdb/builder:alpine-go1.20'
+    image: 'airdb/builder:alpine-go1.21'
     build:
       context: .
       dockerfile: Dockerfile
