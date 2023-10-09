@@ -9,3 +9,4 @@ services:
     command: sleep 3600
     environment:
       - env=test
+      - TZ=Asia/Shanghai

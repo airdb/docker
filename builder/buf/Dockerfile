@@ -9,6 +9,7 @@ RUN apk add --no-cache --virtual .build-deps \
     bash \
     git \
     vim \
+    make \
     tzdata
 
 #	go install github.com/bufbuild/protoc-gen-validate@latest
