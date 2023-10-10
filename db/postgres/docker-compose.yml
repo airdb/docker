@@ -2,15 +2,17 @@ version: '3.8'
 services:
   postgres:
     container_name: postgres
-    image: postgres:14.1-alpine
+    image: postgres:16
     restart: always
     environment:
+      - TZ=Asia/Shanghai
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    ports:
-      - '5432:5432'
+    #ports:
+    #  - '5432:5432'
     volumes: 
-      - db:/var/lib/postgresql/data
-volumes:
-  db:
-    driver: local
+      #- pgsql:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+#volumes:
+#  pgsql:
+#    driver: local

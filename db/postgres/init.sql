@@ -1,15 +1,20 @@
-#GRANT ALL PRIVILEGES ON *.* TO 'root' @'%';
-CREATE USER 'airdb'@'%' IDENTIFIED BY 'passwd';
-GRANT ALL PRIVILEGES ON *.* TO 'airdb' @'%';
+/* 
+- PostgreSQL’s Docker image is configured to run any .sql files in the /docker-entrypoint-initdb.d directory.
+- Ensure this script in the directory.
 
-FLUSH PRIVILEGES;
+- docker compose logs:
+- postgres  | /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/init.sql
+*/
 
-CREATE DATABASE IF NOT EXISTS `test`;
+CREATE TABLE tbl_example_user (
+    username TEXT,
+    password TEXT,
+    birthed_at timestamp with time zone
+);
 
-USE `test`;
-
-CREATE TABLE IF NOT EXISTS `user_tab` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/* init dataset
+ * COPY inflation_data
+ * FROM '/docker-entrypoint-initdb.d/inflation.csv'
+ * DELIMITER ','
+ * CSV HEADER;
+*/
