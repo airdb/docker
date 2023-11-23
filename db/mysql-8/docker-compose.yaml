@@ -1,7 +1,8 @@
-version: '3'
+version: '3.8'
 
 services:
   testdb8:
+    container_name: testdb8
     image: 'mysql:8'
     command: --default-authentication-plugin=mysql_native_password --init-file /srv/sql/init.sql
     volumes:
@@ -10,9 +11,9 @@ services:
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_ROOT_HOST=%
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=test
-      - MYSQL_USER=airdb
-      - MYSQL_PASSWORD=airdb
-    container_name: testdb8
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+      MYSQL_USER: airdb
+      MYSQL_PASSWORD: airdb

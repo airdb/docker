@@ -11,8 +11,8 @@ services:
     #ports:
     #  - '5432:5432'
     volumes: 
-      #- pgsql:/var/lib/postgresql/data
+      - pgsql:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-#volumes:
-#  pgsql:
-#    driver: local
+volumes:
+  pgsql:
+    driver: local

@@ -1,22 +1,30 @@
-up:
-	docker compose up -d --build --force-recreate
-build:
-	docker compose build
+SERVICE := testdb8
 
-start:
-	docker compose start
+all: help
 
-stop:
-	docker compose stop
+help: ## Show help messages
+	@echo "Container - ${SERVICE} "
+	@echo
+	@echo "Usage:\tmake COMMAND"
+	@echo
+	@echo "Commands:"
+	@sed -n '/##/s/\(.*\):.*##/  \1#/p' ${MAKEFILE_LIST} | grep -v "MAKEFILE_LIST" | column -t -c 2 -s '#'
 
-restart:
-	docker compose restart
+build: ## Build
+	#docker compose build --no-cache
+	docker compose ${SERVICE} build
 
-ps:
-	docker compose ps
+up: ## Create and start containers
+	docker compose up ${SERVICE} -d --force-recreate
 
-bash:
-	docker compose exec testdb8 bash
+start: ## Start services
+	docker compose start ${SERVICE}
 
-logs:
-	docker compose logs
+stop: ## Stop services
+	docker compose stop ${SERVICE}
+
+logs: ## Check logs
+	docker compose logs ${SERVICE}
+
+bash: ## Execute a command in a running container
+	docker compose exec ${SERVICE} /bin/bash
