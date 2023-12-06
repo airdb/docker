@@ -1,4 +1,4 @@
-#MAINTAINER https://github.com/airdb
+LABEL Maintainer="airdb team <info@airdb.com>"  Description="https://github.com/airdb"
 
 FROM ubuntu:22.04
 

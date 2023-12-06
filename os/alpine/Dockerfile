@@ -1,6 +1,6 @@
-FROM alpine:3.18
-
 LABEL Maintainer="airdb team <info@airdb.com>"  Description="https://github.com/airdb"
+
+FROM alpine:3.18
 
 ENV SERVICE alpine
 ENV VERSION 3.18
