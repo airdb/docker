@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  alpine:
+    container_name: alpine
+    working_dir: /srv/
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: 'airdb/alpine:latest'
+    command: sleep 3600
+    volumes:
+      - ./:/srv/alpine
+    ports:
+      - "8080:8080"
+    environment:
+      - env=test
