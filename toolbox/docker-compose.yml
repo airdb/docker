@@ -2,6 +2,8 @@ version: '3'
 
 services:
   toolbox:
+    container_name: toolbox
+    platform: linux/amd64
     build:
       context: .
       dockerfile: Dockerfile.ubuntu
@@ -13,4 +15,3 @@ services:
       - "8080:8080"
     environment:
       - env=test
-    container_name: toolbox

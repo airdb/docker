@@ -14,6 +14,7 @@ help: ## Show help messages
 
 up: ## Create and start containers
 	docker compose up -d --force-recreate
+
 build: ## Build or rebuild services
 	docker compose build --no-cache
 
