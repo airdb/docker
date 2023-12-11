@@ -13,7 +13,7 @@ help: ## Show help messages
 	@sed -n '/##/s/\(.*\):.*##/  \1#/p' ${MAKEFILE_LIST} | grep -v "MAKEFILE_LIST" | column -t -c 2 -s '#'
 
 up: ## Create and start containers
-	docker compose up -d --build --force-recreate
+	docker compose up -d --force-recreate
 build: ## Build or rebuild services
 	docker compose build --no-cache
 
