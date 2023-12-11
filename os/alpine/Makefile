@@ -20,13 +20,13 @@ build: ## Build or rebuild services
 	docker compose build --no-cache
 
 start: ## Start services
-	docker compose ${SERVICE} start
+	docker compose start ${SERVICE}
 
 stop: ## Stop services
-	docker compose ${SERVICE} stop
+	docker compose stop ${SERVICE}
 
 restart: ## Restart containers
-	docker compose ${SERVICE} restart
+	docker compose restart ${SERVICE}
 
 ps: ## List containers
 	docker compose ps

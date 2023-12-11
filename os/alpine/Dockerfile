@@ -1,26 +1,37 @@
+FROM alpine:latest as builder
+
+WORKDIR /build
+
+RUN cd /build/ && \
+    wget http://nl.alpinelinux.org/alpine/latest-stable/releases/x86_64/alpine-minirootfs-3.19.0-x86_64.tar.gz && \
+    tar xvf alpine-minirootfs-3.19.0-x86_64.tar.gz
+
+
+FROM scratch
+
+LABEL Issue="Alpine minirootfs lastet stable 3.19.0" \
+      build_ver="2022-1209_19:50"
+
 LABEL Maintainer="airdb team <info@airdb.com>"  Description="https://github.com/airdb"
 
-FROM alpine:3.18
-
-ENV SERVICE alpine
-ENV VERSION 3.18
+ENV OS_NAME alpine
+ENV OS_VERSION 3.19
 ENV RUNNING_CONTEXT docker
 
+COPY --from=builder /build /
+
 RUN apk add --no-cache --virtual .build-deps \
+    tzdata tar gzip bash bash-doc bash-completion \
     bash \
     vim \
     git
 
-#ENV RUNNING_CONTEXT="docker" \
-#    LANGUAGE=en_US.UTF-8 \
-#    LANG=en_US.UTF-8 \
-#    LANGUAGE=en_US.UTF-8 \
-#    PS1='[\H \W]\$ ' \
 
-##ADD airdb.com.sh /etc/profile.d/
-RUN echo 'set encoding=utf-8' >  ~/.vimrc && \
-    echo 'bind "^W" ed-delete-prev-word' > ~/.editrc
+RUN cp /usr/share/zoneinfo/Asia/Singapore /etc/localtime
 
-RUN echo 'export HISTTIMEFORMAT="%Y-%m-%d %T \$LC_NAME \$SSH_TTY " ' >> /etc/profile
+# Set bash as default shell.
+RUN sed -i '/root/s/ash/bash/g' /etc/passwd
 
-CMD ["/bin/sh", "/etc/profile"]
+WORKDIR /app
+
+CMD ["/bin/bash", "--login"]
