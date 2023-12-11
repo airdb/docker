@@ -23,4 +23,4 @@ RUN echo 'set encoding=utf-8' >  ~/.vimrc && \
 
 RUN echo 'export HISTTIMEFORMAT="%Y-%m-%d %T \$LC_NAME \$SSH_TTY " ' >> /etc/profile
 
-#CMD ["/bin/sh", "/etc/profile"]
+CMD ["/bin/sh", "/etc/profile"]
