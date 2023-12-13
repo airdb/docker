@@ -2,6 +2,8 @@
 
 A repo for build basic docker images.
 
+You can also learn Linux command with container [here](./learn/)
+
 ## Platform
 
 [OrbStack](https://orbstack.dev/)
