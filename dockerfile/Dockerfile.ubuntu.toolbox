@@ -2,7 +2,7 @@
 
 #MAINTAINER https://github.com/airdb
 
-FROM ubuntu:20.04
+FROM ubuntu:22:04
 
 ## The INCLUDE+ instruction gets imported by the first line in the Dockerfile. 
 ## You can read more about the dockerfile-plus at https://github.com/edrevo/dockerfile-plus
@@ -10,7 +10,7 @@ FROM ubuntu:20.04
 ## It depends on docker-compose.yaml in this repo.
 INCLUDE+ ./dockerfile/Dockerfile.ubuntu.common
 
-#FROM ubuntu:16.04
+#FROM ubuntu:22:04
 
 #ENV NOTVISIBLE "in users profile"
 #RUN echo "export VISIBLE=now" >> /etc/profile

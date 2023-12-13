@@ -1,5 +1,5 @@
-#FROM ubuntu:20.04
-FROM ubuntu:20.04
+#FROM ubuntu:22:04
+FROM ubuntu:22:04
 MAINTAINER info@airdb.com
 
 # docker build -t airdb/toolbox . -f toolbox.dockerfile

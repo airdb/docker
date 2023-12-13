@@ -8,7 +8,7 @@
 ## It depends on docker-compose.yaml in this repo.
 INCLUDE+ ./dockerfile/Dockerfile.ubuntu.base
 
-#FROM ubuntu:16.04
+#FROM ubuntu:22:04
 
 #ENV NOTVISIBLE "in users profile"
 #RUN echo "export VISIBLE=now" >> /etc/profile

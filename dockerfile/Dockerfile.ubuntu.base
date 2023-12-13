@@ -1,6 +1,6 @@
 #MAINTAINER https://github.com/airdb
 
-FROM ubuntu:20.04
+FROM ubuntu:22:04
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile

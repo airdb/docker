@@ -1,5 +1,5 @@
-FROM ubuntu:16.04
-#FROM ubuntu:16.04
+FROM ubuntu:22:04
+#FROM ubuntu:22:04
 MAINTAINER  dean
 
 RUN apt-get update && apt-get install -y curl openssh-server lsb-core sudo
