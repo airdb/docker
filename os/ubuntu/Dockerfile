@@ -1,6 +1,7 @@
-LABEL Maintainer="airdb team <info@airdb.com>"  Description="https://github.com/airdb"
-
 FROM ubuntu:22.04
+
+LABEL maintainer="airdb team <info@airdb.com>"
+LABEL description="https://github.com/airdb"
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile

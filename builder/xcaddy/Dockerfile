@@ -1,10 +1,10 @@
 FROM golang:1.20-alpine
 
-LABEL description="airdb build" \
-      tags="latest v0.1.0" \
-      maintainer="airdb.team <https://github.com/airdb/docker>" \
-      build_ver="2023-0428_0028"
- 
+LABEL maintainer="airdb team <info@airdb.com>"
+LABEL description="https://github.com/airdb"
+LABEL buildtime="2023-0428_0028"
+LABEL tags="latest v0.1.0"
+
 RUN apk add --no-cache --virtual .build-deps \
     bash \
     git \

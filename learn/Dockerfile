@@ -1,20 +1,18 @@
 FROM ubuntu:22.04
 
-LABEL Maintainer="airdb team <info@airdb.com>"  Description="https://github.com/airdb"
+LABEL maintainer="airdb team <info@airdb.com>"
+LABEL description="https://github.com/airdb"
 
 
-
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install --no-install-recommends -y \
     iputils-ping \
     netcat \
     wget \
     git \
-    curl
-
-# clean up
-RUN apt-get clean autoclean && \
+    curl && \
+    apt-get clean autoclean && \
     apt-get autoremove --yes && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/cache/apt/archives /var/lib/apt/lists/*
 
 
 ENV NOTVISIBLE "in users profile"

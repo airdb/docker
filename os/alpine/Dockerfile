@@ -9,10 +9,11 @@ RUN cd /build/ && \
 
 FROM scratch
 
-LABEL Issue="Alpine minirootfs lastet stable 3.19.0" \
-      build_ver="2022-1209_19:50"
+LABEL issue="Alpine minirootfs lastet stable 3.19.0"
+LABEL buildtime ="2022-1209_19:50"
 
-LABEL Maintainer="airdb team <info@airdb.com>"  Description="https://github.com/airdb"
+LABEL maintainer="airdb team <info@airdb.com>"
+LABEL description="https://github.com/airdb"
 
 ENV OS_NAME alpine
 ENV OS_VERSION 3.19

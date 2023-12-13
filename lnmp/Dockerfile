@@ -16,7 +16,7 @@ RUN apt-get install -y mysql-client
 RUN apt-get install -y php-fpm
 #  apt-get install -y vim git nginx php7-fpm php-fpm
 
-ADD . /srv
+COPY . /srv
 RUN chown www-data.www-data -R /srv
 
 
