@@ -27,7 +27,7 @@ RUN cat <<EOF >> /root/.profile
 export VISIBLE=now
 export DEBIAN_FRONTEND=noninteractive
 #export PS1='[\H \W]\\$ '
-export PS1="\033[32m[\u@\H \W]\033[0m$ "
+export PS1='\033[32m[\u@\H \W]\033[0m\\$ '
 
 echo -e "\033[32m=================================================================\033[0m"
 echo -e "\033[32m|     Welcome to use the docker container, an environment        |\033[0m"

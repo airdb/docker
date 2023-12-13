@@ -9,6 +9,8 @@ help: ## Show help messages
 	@echo "\033[32m|     Welcome to use the docker container, an environment        |\033[0m"
 	@echo "\033[32m|     for Linux Operating System learning and practice.          |\033[0m"
 	@echo "\033[32m|                                                                |\033[0m"
+	@echo "\033[32m|             Handbook: https://airdb.wiki/os/linux              |\033[0m"
+	@echo "\033[32m|                                                                |\033[0m"
 	@echo "\033[32m|              Enjoy your study journey!                         |\033[0m"
 	@echo "\033[32m|              Okay, let's get started!                          |\033[0m"
 	@echo "\033[32m|                                                                |\033[0m"
