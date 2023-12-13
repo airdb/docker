@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 ARG TZ=Asia/Shanghai
 
 RUN apt-get update &&  \
-    apt-get install -y wget tzdata apt-utils && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
+    apt-get install --no-install-recommends -y wget tzdata apt-utils && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends ca-certificates php-fpm nginx openssl php-mysql php-gd php-bcmath php-mbstring php-xml php-curl && \
     apt-get install -y --no-install-recommends mysql-client iputils-ping vim unzip && \
@@ -19,8 +19,8 @@ COPY root /
 # https://www.discuz.net/daily/
 ADD "https://www.discuz.net/daily/?dl=DZX-SC_UTF8-v3.4-202006050500-931ea4f2.zip" /tmp/DiscuzX/DiscuzX.zip
 
-RUN cd /tmp/DiscuzX/ && \
-    unzip DiscuzX.zip  && \
+WORKDIR /tmp/DiscuzX
+RUN unzip DiscuzX.zip  && \
     rm -rf upload/instal && \
     mv upload /var/www/discuz
 

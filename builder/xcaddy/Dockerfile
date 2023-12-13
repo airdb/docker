@@ -9,6 +9,5 @@ RUN apk add --no-cache --virtual .build-deps \
     bash \
     git \
     vim \
-    tzdata
-
-RUn go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest
+    tzdata && \
+    go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest

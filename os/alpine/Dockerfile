@@ -1,9 +1,8 @@
 FROM alpine:latest as builder
 
 WORKDIR /build
-
-RUN cd /build/ && \
-    wget http://nl.alpinelinux.org/alpine/latest-stable/releases/x86_64/alpine-minirootfs-3.19.0-x86_64.tar.gz && \
+RUN wget --progress=dot:giga \
+    http://nl.alpinelinux.org/alpine/latest-stable/releases/x86_64/alpine-minirootfs-3.19.0-x86_64.tar.gz && \
     tar xvf alpine-minirootfs-3.19.0-x86_64.tar.gz
 
 
@@ -27,11 +26,9 @@ RUN apk add --no-cache --virtual .build-deps \
     vim \
     git
 
-
-RUN cp /usr/share/zoneinfo/Asia/Singapore /etc/localtime
-
-# Set bash as default shell.
-RUN sed -i '/root/s/ash/bash/g' /etc/passwd
+# Setup bash as default shell.
+RUN cp /usr/share/zoneinfo/Asia/Singapore /etc/localtime && \
+    sed -i '/root/s/ash/bash/g' /etc/passwd
 
 WORKDIR /app
 
