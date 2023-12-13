@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  lnmp:
+    container_name: lnmp
+    platform: linux/amd64
+    image: 'airdb/lnmp:latest'
+    working_dir: /srv/lnmp
+    hostname: lnmp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #command: sleep 3600
+    volumes:
+      - ./:/srv/lnmp
+      - ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+    ports:
+      - "8080:8080"
+    environment:
+      - env=test
