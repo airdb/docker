@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  osinit:
+    container_name: osinit
+    platform: linux/amd64
+    working_dir: /srv/learn
+    hostname: Linux-Learning
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: 'airdb/osinit:latest'
+    command: sleep 3600
+    volumes:
+      - ./:/srv/learn
+    ports:
+      - "8080:8080"
+    environment:
+      - env=test
