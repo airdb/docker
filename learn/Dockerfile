@@ -8,8 +8,13 @@ RUN apt-get update && apt-get install -y \
     iputils-ping \
     netcat \
     wget \
-    curl \
- && rm -rf /var/lib/apt/lists/*
+    git \
+    curl
+
+# clean up
+RUN apt-get clean autoclean && \
+    apt-get autoremove --yes && \
+    rm -rf /var/lib/apt/lists/*
 
 
 ENV NOTVISIBLE "in users profile"
@@ -29,6 +34,8 @@ export PS1="\033[32m[\u@\H \W]\033[0m$ "
 echo -e "\033[32m=================================================================\033[0m"
 echo -e "\033[32m|     Welcome to use the docker container, an environment        |\033[0m"
 echo -e "\033[32m|     for Linux Operating System learning and practice.          |\033[0m"
+echo -e "\033[32m|                                                                |\033[0m"
+echo -e "\033[32m|             Handbook: https://airdb.wiki/os/linux              |\033[0m"
 echo -e "\033[32m|                                                                |\033[0m"
 echo -e "\033[32m|              Enjoy your study journey!                         |\033[0m"
 echo -e "\033[32m|              Okay, let's get started!                          |\033[0m"
