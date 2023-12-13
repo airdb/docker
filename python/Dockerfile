@@ -1,9 +1,14 @@
-FROM airdb/alpine:latest
+FROM ubuntu:22.04
 
-WORKDIR /app
+WORKDIR /app/python
 
-RUN apk add --no-cache --virtual .build-deps \
-	python3
-#	python3-pip
+RUN apt update && apt install --no-install-recommends -y \
+	python3 \
+	python3-pip && \
+	rm -rf /var/cache/apt/archives /var/lib/apt/lists/*
 
-CMD ["/bin/bash", "--login"]
+COPY . /app/python/
+
+RUN pip3 install -r requirements.txt
+
+#CMD ["/bin/bash", "--login"]

@@ -4,14 +4,12 @@ services:
   python:
     container_name: python
     platform: linux/amd64
-    working_dir: /srv/
+    image: 'airdb/python:latest'
+    working_dir: /app/python
     build:
       context: .
       dockerfile: Dockerfile
-    image: 'airdb/python:latest'
     command: sleep 3600
-    volumes:
-      - ./:/srv/python
     ports:
       - "8080:8080"
     environment:

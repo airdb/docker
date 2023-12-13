@@ -1,11 +1,11 @@
 # LABEL Maintainer="airdb team <info@airdb.com>"  Description="https://github.com/airdb"
 
-SERVICE := python
+SERVICE := supervisor
 
 all: help
 
 help: ## Show help messages
-	@echo "Container - ${SERVICE} "
+	@echo "Container - ${SERVICE}"
 	@echo
 	@echo "Usage:\tmake COMMAND"
 	@echo
@@ -14,25 +14,24 @@ help: ## Show help messages
 
 up: ## Create and start containers
 	docker compose up -d --force-recreate
-	#docker compose up -d --build --force-recreate
 
 build: ## Build or rebuild services
 	docker compose build --no-cache
 
 start: ## Start services
-	docker compose start ${SERVICE}
+	docker compose start
 
 stop: ## Stop services
-	docker compose stop ${SERVICE}
+	docker compose stop
 
 restart: ## Restart containers
-	docker compose restart ${SERVICE}
+	docker compose restart
 
 ps: ## List containers
 	docker compose ps
 
 log logs: ## View output from containers
-	docker compose logs ${SERVICE}
+	docker compose logs
 
 rm: stop ## Stop and remove stopped service containers
 	docker compose rm ${SERVICE}

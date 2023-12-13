@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  supervisor:
+    container_name: supervisor
+    platform: linux/amd64
+    image: 'airdb/supervisor:latest'
+    working_dir: /srv/supervisor
+    hostname: supervisor
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #command: sleep 3600
+    volumes:
+      - ./:/srv/supervisor
+    ports:
+      - "8080:8080"
+    environment:
+      - env=test
