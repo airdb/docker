@@ -1,19 +1,19 @@
 version: '3'
 
 services:
-  airdb-python:
+  browserstack:
+    container_name: browserstack
+    image: 'airdb/browserstack:latest'
     platform: linux/amd64
     build:
-      context: ../
-      dockerfile: ./dockerfile/Dockerfile.ubuntu.python
-    image: 'airdb/python:latest'
+      context: .
+      dockerfile: Dockerfile
     command: sleep 3600
     volumes:
-      - ./:/srv/toolbox
+      - ./:/srv/browserstack
     ports:
       - "8080:8080"
     environment:
       - env=test
       - BROWSERSTACK_USERNAME=${BROWSERSTACK_USERNAME}
       - BROWSERSTACK_ACCESS_KEY=${BROWSERSTACK_ACCESS_KEY}
-    container_name: airdb-python
