@@ -22,8 +22,8 @@ INCLUDE+ ./dockerfile/Dockerfile.ubuntu.base
 #RUN echo "export VISIBLE=now" >> /etc/profile
 #
 #WORKDIR /srv
-#RUN apt-get update && \
-#	apt-get install -y curl less && \
-#	apt-get install -y gcc g++ make
+#RUN apt update && \
+#	apt install -y curl less && \
+#	apt install -y gcc g++ make
 #
-#RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --reinstall ca-certificates nmap
+#RUN DEBIAN_FRONTEND=noninteractive apt install -y --reinstall ca-certificates nmap

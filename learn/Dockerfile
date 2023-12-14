@@ -4,14 +4,14 @@ LABEL maintainer="airdb team <info@airdb.com>"
 LABEL description="https://github.com/airdb"
 
 
-RUN apt-get update && apt-get install --no-install-recommends -y \
+RUN apt update && apt install --no-install-recommends -y \
     iputils-ping \
     netcat \
     wget \
     git \
     curl && \
-    apt-get clean autoclean && \
-    apt-get autoremove --yes && \
+    apt clean autoclean && \
+    apt autoremove --yes && \
     rm -rf /var/cache/apt/archives /var/lib/apt/lists/*
 
 

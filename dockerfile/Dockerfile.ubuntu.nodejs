@@ -14,5 +14,5 @@ RUN echo "export PS1='[\H \W]\\$ '" >> /root/.profile
 
 # curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
 # npm install -g @d2-admin/d2-admin-cli
-RUN apt-get update && \
-	apt-get install -y curl git vim
+RUN apt update && \
+	apt install -y curl git vim

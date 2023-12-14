@@ -1,7 +1,7 @@
 FROM ubuntu:22:04
 MAINTAINER  airdb.com
 
-# RUN apt-get update && apt-get install -y curl openssh-server lsb-core sudo
+# RUN apt update && apt install -y curl openssh-server lsb-core sudo
 # RUN mkdir /var/run/sshd
 # RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 #
@@ -20,7 +20,7 @@ ADD https://raw.githubusercontent.com/airdb/docker/master/osinit/authorized_keys
 #
 # RUN echo "export PS1='[\H \W]\\$ '" >> /root/.profile
 
-RUN apt-get update && apt-get -y install curl
+RUN apt update && apt -y install curl
 RUN curl https://raw.githubusercontent.com/airdb/docker/master/osinit/ubuntu_init.sh | bash -s php
 
 EXPOSE 9000

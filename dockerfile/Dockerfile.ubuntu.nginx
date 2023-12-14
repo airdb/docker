@@ -9,4 +9,4 @@ RUN echo "export PS1='[\H \W]\\$ '" >> /root/.profile
 
 WORKDIR /srv
 
-RUN apt update && apt-get install -y sudo vim libpcre3-dev libssl-dev
+RUN apt update && apt install -y sudo vim libpcre3-dev libssl-dev

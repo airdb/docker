@@ -18,11 +18,11 @@ WORKDIR /srv
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && \
-	apt-get install -y curl git less vim && \
-	apt-get install -y gcc g++ make
+RUN apt update && \
+	apt install -y curl git less vim && \
+	apt install -y gcc g++ make
 
 
 ## Install network releated deb package.
-RUN apt-get install -y --reinstall ca-certificates && \
-	apt-get install -y net-tools iproute2 iputils-ping telnet nmap
+RUN apt install -y --reinstall ca-certificates && \
+	apt install -y net-tools iproute2 iputils-ping telnet nmap

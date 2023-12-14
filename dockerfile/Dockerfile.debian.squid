@@ -14,8 +14,8 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 WORKDIR /srv
-RUN apt-get update && \
-	apt-get install -y curl && \
-	apt-get install -y gcc g++ make less vim
+RUN apt update && \
+	apt install -y curl && \
+	apt install -y gcc g++ make less vim
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y squid
+RUN DEBIAN_FRONTEND=noninteractive apt install -y squid

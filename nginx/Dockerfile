@@ -3,8 +3,8 @@ FROM nginx:latest
 ARG DEBIAN_FRONTEND=noninteractive
 
 #RUN sed -i 's/ports.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
+RUN apt update && \
+    apt install --no-install-recommends -y \
     vim git curl && \
     rm -rf /var/cache/apt/archives /var/lib/apt/lists/*
 

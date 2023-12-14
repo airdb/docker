@@ -14,13 +14,13 @@ ENV PHP_VERSION 7.1
 # libpcre3 libssl1.1 php-toolbox php7.1-toolbox php7.1-json php7.1-opcache php7.1-readline php7.1-cli php7.1-fpm
 #	software-properties-toolbox  && \
 ENV DEBIAN_FRONTEND noninteractive
-#RUN apt-get update && apt-get -y install  dialog libreadline6 libreadline6-dev && \
-RUN apt-get update
+#RUN apt update && apt -y install  dialog libreadline6 libreadline6-dev && \
+RUN apt update
 
-RUN apt-get -y install software-properties-common && \
-    LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php && \
-    apt-get update
-RUN apt-get -y --allow-unauthenticated install \
+RUN apt -y install software-properties-common && \
+	LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php && \
+	apt update
+RUN apt -y --allow-unauthenticated install \
 	php${PHP_VERSION}-fpm \
 	php${PHP_VERSION}-xml \
 	php${PHP_VERSION}-common \
@@ -31,9 +31,9 @@ RUN apt-get -y --allow-unauthenticated install \
 	php${PHP_VERSION}-bcmath \
 	php${PHP_VERSION}-dev \
 	php${PHP_VERSION}-mysql && \
-    mkdir -p /run/php/ && \
-    sed -i 's/^listen = .*/listen = 0.0.0.0:9000/' /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf && \
-    sed -i '/php_mysqli/s/;extension=php_mysqli.dll/extension=php_mysqli.so/g' /etc/php/${PHP_VERSION}/fpm/php.ini
+	mkdir -p /run/php/ && \
+	sed -i 's/^listen = .*/listen = 0.0.0.0:9000/' /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf && \
+	sed -i '/php_mysqli/s/;extension=php_mysqli.dll/extension=php_mysqli.so/g' /etc/php/${PHP_VERSION}/fpm/php.ini
 
 
 

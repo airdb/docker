@@ -2,7 +2,7 @@ FROM ubuntu:22:04
 #FROM ubuntu:22:04
 MAINTAINER  dean
 
-RUN apt-get update && apt-get install -y curl openssh-server lsb-core sudo
+RUN apt update && apt install -y curl openssh-server lsb-core sudo
 RUN mkdir /var/run/sshd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 

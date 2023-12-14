@@ -6,11 +6,11 @@ LABEL description="Discuz! X container with Nginx & PHP-FPM based on Ubuntu bion
 ARG DEBIAN_FRONTEND=noninteractive
 ARG TZ=Asia/Shanghai
 
-RUN apt-get update &&  \
-    apt-get install --no-install-recommends -y wget tzdata apt-utils && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
-    apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends ca-certificates php-fpm nginx openssl php-mysql php-gd php-bcmath php-mbstring php-xml php-curl && \
-    apt-get install -y --no-install-recommends mysql-client iputils-ping vim unzip && \
+RUN apt update &&  \
+    apt install --no-install-recommends -y wget tzdata apt-utils && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
+    apt upgrade -y && \
+    apt install -y --no-install-recommends ca-certificates php-fpm nginx openssl php-mysql php-gd php-bcmath php-mbstring php-xml php-curl && \
+    apt install -y --no-install-recommends mysql-client iputils-ping vim unzip && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /run/php 
 

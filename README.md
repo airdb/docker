@@ -17,7 +17,7 @@ For now, we can run `docker compose` once install the docker desktop.
 Strongly recommend not to use `docker-compose` now.
 
 tips:
-If you are using an ubuntu system, can also use `apt-get` install the docker compose plugin.  It is very useful for us.
+If you are using an ubuntu system, can also use `apt` install the docker compose plugin.  It is very useful for us.
 Another good thing is can run docker rootless.
 
 
