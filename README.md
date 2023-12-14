@@ -34,3 +34,12 @@ The INCLUDE+ instruction gets imported by the first line in the Dockerfile.
 You can read more about the dockerfile-plus at https://github.com/edrevo/dockerfile-plus
 
 Remember that the file path is relative to the build context, not the Dockerfile path.
+
+
+## Dockerfile lint
+
+```bash
+find . -name Dockerfile | xargs hadolint  -  --ignore=DL3018 --ignore=DL3027
+```
+
+error code: https://github.com/hadolint/hadolint/wiki/DL3000#use-absolute-workdir

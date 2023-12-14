@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginx:22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -11,7 +11,6 @@ RUN apt update && \
 WORKDIR /srv/
 COPY . /srv
 RUN chown www-data.www-data -R /srv
-
 
 CMD ["nginx-debug", "-g", "daemon off;"]
 #CMD sleep 3600

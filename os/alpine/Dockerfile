@@ -1,4 +1,4 @@
-FROM alpine:latest as builder
+FROM alpine:3.19 as builder
 
 WORKDIR /build
 RUN wget --progress=dot:giga \

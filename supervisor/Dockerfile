@@ -10,8 +10,9 @@ RUN apt update && \
     rm -rf /var/cache/apt/archives /var/lib/apt/lists/*
 
 COPY run-cron /etc/cron.d/run-cron
-RUN chmod 0644 /etc/cron.d/run-cron
-RUN crontab /etc/cron.d/run-cron
+
+RUN chmod 0644 /etc/cron.d/run-cron && \
+	crontab /etc/cron.d/run-cron
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 

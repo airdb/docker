@@ -6,8 +6,10 @@ LABEL description="https://github.com/airdb"
 
 RUN apt update && apt install --no-install-recommends -y \
     iputils-ping \
+    less \
     netcat \
     wget \
+    ca-certificates \
     git \
     curl && \
     apt clean autoclean && \
