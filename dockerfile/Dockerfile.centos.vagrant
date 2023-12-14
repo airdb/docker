@@ -16,6 +16,19 @@ RUN yum install -y openssh-server openssh-clients \
 RUN echo "vagrant ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/worker
 RUN echo "Defaults:vagrant !requiretty" >> /etc/sudoers.d/worker
 
+
+#ubuntu
+RUN apt update && apt install -y curl openssh-server lsb-core sudo
+RUN mkdir /var/run/sshd
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+# SSH login fix. Otherwise user is kicked off after login
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+
+RUN echo "vagrant ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/README
+RUN echo "Defaults:vagrant !requiretty" >> /etc/sudoers.d/README
+ADD authorized_keys /root/.ssh/
+
 ADD authorized_keys /root/.ssh/
 
 RUN echo "export PS1=\"[\u@\H \W]\$ \"" >> /etc/profile.d/airdb.com.sh
