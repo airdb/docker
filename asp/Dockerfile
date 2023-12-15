@@ -1,4 +1,3 @@
-# syntax=docker/dockerfile:1
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
 docker pull mcr.microsoft.com/dotnet/aspnet
 WORKDIR /app

@@ -1,16 +1,18 @@
 version: '3'
 
 services:
-  squid:
-    container_name: squid
-    image: 'airdb/squid:latest'
+  apkbuild:
+    container_name: apkbuild
+    image: 'airdb/apkbuild:latest'
     platform: linux/amd64
+    working_dir: /srv/
     build:
       context: .
       dockerfile: Dockerfile
     command: sleep 3600
-    network_mode: host
     volumes:
-      - ./:/srv/proxy
+      - ./:/srv/apkbuild
+    ports:
+      - "8080:8080"
     environment:
       - env=test

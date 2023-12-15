@@ -9,4 +9,5 @@ RUN echo "export VISIBLE=now" >> /etc/profile && \
     echo 'set encoding=utf-8' >  ~/.vimrc && \
     echo 'bind "^W" ed-delete-prev-word' > ~/.editrc
 
-RUN echo "export PS1='[\H \W]\\$ '" >> /root/.profile
+RUN echo "export PS1='[\H \W]\\$ '" >> /root/.profile && \
+	echo 'export HISTTIMEFORMAT="%Y-%m-%d %T $(pwd)" ' >> /etc/profile

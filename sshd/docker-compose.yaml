@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  sshd:
+    container_name: sshd
+    image: 'airdb/sshd:latest'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sleep 3600
+    environment:
+      - env=test
+      - TZ=Asia/Shanghai

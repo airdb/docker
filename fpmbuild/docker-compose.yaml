@@ -1,16 +1,16 @@
 version: '3'
 
 services:
-  toolbox:
+  fpmbuild:
+    container_name: fpmbuild
+    image: 'airdb/fpmbuild:latest'
     platform: linux/amd64
     build:
-      context: ../
-      dockerfile: ./dockerfile/Dockerfile.ubuntu.fpm
-    image: 'airdb/fpm:latest'
+      context: .
+      dockerfile: Dockerfile
     command: sleep 3600
     volumes:
       - ./:/srv/toolbox
     #ports: - "8080:8080"
     environment:
       - env=test
-    container_name: fpm

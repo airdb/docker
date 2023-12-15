@@ -2,11 +2,12 @@ version: '3'
 
 services:
   golang:
+    container_name: golang
+    image: 'airdb/golang:latest'
     platform: linux/amd64
     build:
-      context: ../
-      dockerfile: ./dockerfile/Dockerfile.debian.golang
-    image: 'airdb/golang:latest'
+      context: .
+      dockerfile: Dockerfile
     command: sleep 3600
     volumes:
       - ./:/srv/toolbox
@@ -14,4 +15,3 @@ services:
       - "8080:8080"
     environment:
       - env=test
-    container_name: golang
