@@ -1,0 +1,8 @@
+Package: my-package
+Version: 1.0.1
+Architecture: all
+Maintainer: airdb.team <help@airdb.io>
+Depends:
+Description: A simple example package
+Homepage: https://github.com/airdb
+

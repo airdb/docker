@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "[4 postinst] Installed myapp successfully."

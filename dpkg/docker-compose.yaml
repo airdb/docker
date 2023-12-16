@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  dpkg:
+    container_name: dpkg
+    image: 'airdb/dpkg:latest'
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sleep 3600
+    volumes:
+      - ./:/srv/builder
+    #ports: - "8080:8080"
+    environment:
+      - env=test
