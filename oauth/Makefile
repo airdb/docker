@@ -16,7 +16,7 @@ up: ## Create and start containers
 	docker compose up -d --force-recreate
 	#docker compose up -d --build --force-recreate
 
-build: ## Build or rebuild services
+build: ## Build or rebuild docker image
 	docker compose build --no-cache
 
 start: ## Start services
