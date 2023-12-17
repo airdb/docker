@@ -1,16 +1,16 @@
 version: '3'
 
 services:
-  asp:
-    container_name: asp
-    image: 'airdb/asp:latest'
+  dotnet:
+    container_name: dotnet
+    image: 'airdb/dotnet:latest'
     platform: linux/amd64
     build:
       context: .
       dockerfile: Dockerfile
     command: sleep 3600
     volumes:
-      - ./:/srv/toolbox
+      - ./:/srv/dotnet
     ports:
       - "8080:8080"
     environment:

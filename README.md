@@ -12,12 +12,9 @@ You can also learn Linux command with container [here](./learn/)
 
 ## Docker compose
 
-For now, we can run `docker compose` once install the docker desktop.
-
-Strongly recommend not to use `docker-compose` now.
+For now, we can run `docker compose` once install the Docker Desktop or OrbStack.
 
 tips:
-If you are using an ubuntu system, can also use `apt` install the docker compose plugin.  It is very useful for us.
 Another good thing is can run docker rootless.
 
 
@@ -43,3 +40,12 @@ find . -name Dockerfile | xargs hadolint  -  --ignore=DL3018 --ignore=DL3027
 ```
 
 error code: https://github.com/hadolint/hadolint/wiki/DL3000#use-absolute-workdir
+
+
+## Community Organisations
+
+https://hub.docker.com/u/ubuntu
+
+https://hub.docker.com/u/centos
+
+https://hub.docker.com/u/airdb
