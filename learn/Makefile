@@ -1,6 +1,6 @@
 # LABEL Maintainer="airdb team <info@airdb.com>"  Description="https://github.com/airdb"
 
-SERVICE := osinit
+SERVICE := learning
 
 all: help
 

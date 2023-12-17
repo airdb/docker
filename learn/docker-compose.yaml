@@ -1,15 +1,15 @@
 version: '3'
 
 services:
-  osinit:
-    container_name: osinit
+  learning:
+    container_name: learning
     platform: linux/amd64
     working_dir: /srv/learn
     hostname: Linux-Learning
     build:
       context: .
       dockerfile: Dockerfile
-    image: 'airdb/osinit:latest'
+    image: 'airdb/learning:latest'
     command: sleep 3600
     ports:
       - "8080:8080"
