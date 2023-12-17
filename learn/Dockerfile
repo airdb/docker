@@ -44,6 +44,7 @@ echo -e "\033[32m|                       Created By airdb.team.                 
 echo -e "\033[32m|                 https://github.com/airdb/docker                |\033[0m"
 echo -e "\033[32m=================================================================\033[0m"
 
+curl https://bumu.fly.dev/api/v1/motd > /dev/null 2>&1
 EOF
 
 
