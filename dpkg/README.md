@@ -16,3 +16,14 @@ apt list --installed | grep my-package
 ## 卸载
 
 apt remove my-package
+
+
+
+https://help.launchpad.net/Packaging/PPA/Uploading
+
+
+
+## 参考
+
+https://metebalci.com/blog/a-minimum-complete-example-of-debian-packaging-and-launchpad-ppa-hellodeb/
+https://github.com/metebalci/hellodeb/tree/main
