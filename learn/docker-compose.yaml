@@ -5,12 +5,12 @@ services:
     container_name: learning
     platform: linux/amd64
     working_dir: /srv/learn
-    hostname: Linux-Learning
+      #hostname: Linux-Learning
     build:
       context: .
       dockerfile: Dockerfile
     image: 'airdb/learning:latest'
-    command: sleep 3600
+    command: sleep 1800
     ports:
       - "8080:8080"
     environment:
