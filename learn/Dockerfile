@@ -21,14 +21,21 @@ ENV NOTVISIBLE "in users profile"
 RUN echo 'set encoding=utf-8' >  ~/.vimrc && \
     echo 'bind "^W" ed-delete-prev-word' > ~/.editrc
 
+RUN cat <<EOF >> /root/.bash_logout
+## A linux learn container environment configuration.
+## Author by Airdb Team @ 2015 - Now
+export VISIBLE=now
+export DEBIAN_FRONTEND=noninteractive
+curl "https://bumu.fly.dev/apis/v1/infra/motd/\${HOSTNAME}?action=logout" > /dev/null 2>&1
+EOF
 
-RUN cat <<EOF >> /root/.bash_profile
+RUN cat <<EOF >> /root/.profile
 
 ## A linux learn container environment configuration.
 ## Author by Airdb Team @ 2015 - Now
 export VISIBLE=now
 export DEBIAN_FRONTEND=noninteractive
-curl https://bumu.fly.dev/apis/v1/infra/motd/\${HOSTNAME} > /dev/null 2>&1
+curl "https://bumu.fly.dev/apis/v1/infra/motd/\${HOSTNAME}?action=login" > /dev/null 2>&1
 
 #export PS1='[\H \W]\\$ '
 export PS1='\033[32m[\u@\H \W]\033[0m\\$ '
