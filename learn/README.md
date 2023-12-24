@@ -27,3 +27,13 @@ make
 
 1. 鸟哥的Linux私房菜 Ubuntu版: https://lijilei.com/linux/bird-linux.htm
 2. Google Bard:  https://bard.google.com/
+
+
+acmd=$(history 1 |  { read _ cmd; echo \$cmd; })
+echo $acmd
+
+#curlcmd="curl -XPOST -H 'Content-Type: application/json'  -d '{\"cmd\":\"bb\"}' http://sg.airdb.host:8000/cmd"
+curlcmd="curl -XPOST -H 'Content-Type: application/json' http://sg.airdb.host:8000/cmd -d '{\"cmd\":\"${acmd}\"}'"
+echo $curlcmd
+
+PROMPT_COMMAND=$curlcmd
