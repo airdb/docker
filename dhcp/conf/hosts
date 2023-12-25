@@ -1,0 +1,9 @@
+ host rmc1.airdb.io {hardware ethernet 00:01:02:03:04:80 ;fixed-address 10.0.0.253 ;}
+ host dean.airdb.io { hardware ethernet f0:76:1c:02:b1:10 ;fixed-address 10.0.0.251;}
+
+ host dhcp_01 { hardware ethernet 00:8c:fa:eb:b4:bc ;fixed-address 10.0.0.01 ;}
+ host h_02 { hardware ethernet 00:8c:fa:eb:b2:d4 ;fixed-address 10.0.0.02 ;}
+ host h_03 { hardware ethernet 00:8c:fa:eb:b4:0c ;fixed-address 10.0.0.03 ;}
+ host h_04 { hardware ethernet 00:8c:fa:eb:b8:08 ;fixed-address 10.0.0.04 ;}
+ host h_05 { hardware ethernet 00:8c:fa:eb:b4:d0 ;fixed-address 10.0.0.05 ;}
+ host h_06 { hardware ethernet 00:8c:fa:eb:b4:78 ;fixed-address 10.0.0.06 ;}

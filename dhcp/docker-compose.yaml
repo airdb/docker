@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  dhcp:
+    container_name: dhcp
+    image: 'airdb/dhcp:latest'
+    platform: linux/amd64
+    working_dir: /srv/dhcp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sleep 3600
+    volumes:
+      - ./:/srv/dhcp
+    ports:
+      - "8080:8080"
+    environment:
+      - env=test
