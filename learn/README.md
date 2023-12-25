@@ -29,11 +29,5 @@ make
 2. Google Bard:  https://bard.google.com/
 
 
-acmd=$(history 1 |  { read _ cmd; echo \$cmd; })
-echo $acmd
+lastcmd=$(history 1 |  { read _ cmd; echo \$cmd; })
 
-#curlcmd="curl -XPOST -H 'Content-Type: application/json'  -d '{\"cmd\":\"bb\"}' http://sg.airdb.host:8000/cmd"
-curlcmd="curl -XPOST -H 'Content-Type: application/json' http://sg.airdb.host:8000/cmd -d '{\"cmd\":\"${acmd}\"}'"
-echo $curlcmd
-
-PROMPT_COMMAND=$curlcmd

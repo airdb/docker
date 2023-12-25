@@ -3,7 +3,8 @@
 ## A linux learn container environment configuration.
 ## Author by Airdb Team @ 2015 - Now
 
-export BUMUAPI="https://bumu.fly.dev"
+#export BUMUAPI="https://bumu.fly.dev"
+export BUMUAPI="http://sg.airdb.host:8000"
 
 # Initialize variable to store the last command executed
 lastcmd=""
@@ -11,7 +12,6 @@ lastcmd=""
 # Use the DEBUG trap to capture each command
 function capture_lastcmd() {
   #lastcmd=$BASH_COMMAND
-  #lastcmd=$(history 1 | cut -d' ' -f5- )
   lastcmd=$(history 1 | sed 's/^[ ]*[0-9]\+  //' )
 }
 
@@ -24,7 +24,7 @@ function send_lastcmd_to_api() {
   fi
 
   # Create JSON data
-  json_data=$(echo "$lastcmd" | jq -c -R '{"cmd": .}')
+  json_data=$(printf '{host: "%s", cmd: "%s"}\n', "$HOSTNAME", "$lastcmd")
 
   # Use curl to send the data
   curl -X POST "$BUMUAPI/apis/v1/infra/linux/${HOSTNAME}/cmd" \

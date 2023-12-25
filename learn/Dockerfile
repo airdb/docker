@@ -12,7 +12,6 @@ RUN apt update && apt install --no-install-recommends -y \
     ca-certificates \
     git \
     vim \
-    jq \
     curl && \
     apt clean autoclean && \
     apt autoremove --yes && \
@@ -23,8 +22,6 @@ ENV NOTVISIBLE "in users profile"
 RUN echo 'set encoding=utf-8' >  ~/.vimrc && \
     echo 'bind "^W" ed-delete-prev-word' > ~/.editrc
 
-COPY  90-linux.sh /etc/profile.d/
-COPY  98-motd.sh /etc/profile.d/
-COPY  99-linux.sh /etc/bash.bash_logout
+COPY ./init/. /etc/profile.d/
 
 CMD ["/bin/bash", "--login"]
