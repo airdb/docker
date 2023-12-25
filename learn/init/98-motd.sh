@@ -7,7 +7,7 @@
 ## Author by Airdb Team @ 2015 - Now
 export VISIBLE=now
 export DEBIAN_FRONTEND=noninteractive
-curl "$BUMUAPI/apis/v1/infra/motd/${HOSTNAME}?action=login" > /dev/null 2>&1
+curl "$BUMUAPI/apis/v1/infra/linux/${HOSTNAME}?action=login" > /dev/null 2>&1
 
 #export PS1='[\H \W]\\$ '
 export PS1='\033[32m[\u@\H \W]\033[0m\\$ '
