@@ -24,7 +24,7 @@ function send_lastcmd_to_api() {
   fi
 
   # Create JSON data
-  json_data=$(printf '{host: "%s", cmd: "%s"}\n', "$HOSTNAME", "$lastcmd")
+  json_data=$(printf '{host: "%s", action: "%s"}\n', "$HOSTNAME", "$lastcmd")
 
   # Use curl to send the data
   curl -X POST "$BUMUAPI/apis/v1/infra/linux/${HOSTNAME}" \
