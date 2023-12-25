@@ -24,4 +24,15 @@ RUN echo 'set encoding=utf-8' >  ~/.vimrc && \
 
 COPY ./init/. /etc/profile.d/
 
+RUN cat <<EOF >> /root/.profile
+
+## A linux learn container environment configuration.
+## Author by Airdb Team @ 2015 - Now
+export VISIBLE=now
+export DEBIAN_FRONTEND=noninteractive
+export PS1='\033[32m[\u@\H \W]\033[0m\\$ '
+
+TMOUT=300
+EOF
+
 CMD ["/bin/bash", "--login"]
