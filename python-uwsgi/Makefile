@@ -32,7 +32,7 @@ ps: ## List containers
 	docker compose ps
 
 log logs: ## View output from containers
-	docker compose logs ${SERVICE}
+	docker compose logs -f ${SERVICE}
 
 rm: stop ## Stop and remove stopped service containers
 	docker compose rm ${SERVICE}

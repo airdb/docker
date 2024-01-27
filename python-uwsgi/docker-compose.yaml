@@ -19,3 +19,7 @@ services:
       - "8080:8080"
     environment:
       - env=test
+    logging:
+      options:
+        max-size: "1m"
+        max-file: "3"
