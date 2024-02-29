@@ -18,7 +18,7 @@ RUN echo "export PS1='[\H \W]\\$ '" >> /root/.profile
 
 WORKDIR /srv
 
-RUN apt update && apt-get install -y sudo vim libgcrypt-dev libgd-dev ruby ruby-dev rubygems-integration build-essential
+RUN apt update && apt-get install --no-install-recommends -y sudo vim libgcrypt-dev libgd-dev ruby ruby-dev rubygems-integration build-essential
 
 #RUN gem install --no-ri --no-rdoc fpm
 RUN gem install fpm

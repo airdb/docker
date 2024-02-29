@@ -1,4 +1,5 @@
-FROM  airdb/alpine
+FROM  airdb/alpine:latest
+
 LABEL maintainer="https://github.com/airdb"
 
 # Build image: 

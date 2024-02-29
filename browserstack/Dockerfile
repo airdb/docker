@@ -6,5 +6,5 @@ RUN git clone  https://github.com/airdb/behave-browserstack /srv/behave-browsers
 
 WORKDIR /srv/behave-browserstack
 
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 #RUN paver run local

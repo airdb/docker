@@ -1,6 +1,6 @@
-FROM ubuntu:22:04
+FROM ubuntu:22.04
 
-MAINTAINER airdb.com
+LABEL maintainer="https://github.com/airdb"
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
@@ -15,8 +15,9 @@ ENV PKG oauth2_proxy-v5.1.1.linux-amd64.go1.14.2
 
 ADD https://github.com/oauth2-proxy/oauth2-proxy/releases/download/${VERSION}/${PKG}.tar.gz /tmp
 
-RUN cd /tmp/ && \
-	tar xvf ${PKG}.tar.gz && \
+WORKDIR /tmp
+
+RUN tar xvf ${PKG}.tar.gz && \
 	mv ${PKG}/oauth2_proxy /usr/bin && \
 	rm -rf /tmp/${PKG} /tmp/${PKG}.tar.gz
 
