@@ -8,7 +8,7 @@ services:
       dockerfile: Dockerfile
     image: 'airdb/nginx:latest'
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./:/srv
     environment:
       - TZ=Asia/Shanghai
     ports:
