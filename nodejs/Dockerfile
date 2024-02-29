@@ -1,6 +1,7 @@
 FROM node
 
-MAINTAINER Dean dean@airdb.com
+LABEL maintainer="https://github.com/airdb"
+
 # https://github.com/nginxinc/docker-nginx
 
 WORKDIR /srv

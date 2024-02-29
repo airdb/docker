@@ -6,7 +6,8 @@ FROM ubuntu
 
 ENV DEBIAN_FRONTEND noninteractive
 
-MAINTAINER https://github.com/airdb
+LABEL maintainer="https://github.com/airdb"
+
 
 RUN echo "export VISIBLE=now" >> /etc/profile
 

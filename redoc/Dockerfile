@@ -1,12 +1,14 @@
 FROM node
 
-MAINTAINER https://github.com/airdb
+LABEL maintainer="https://github.com/airdb"
+
+
 
 WORKDIR /srv
 
 RUN git clone https://github.com/Redocly/redoc /srv/redoc
 RUN cd /srv/redoc && \
- 	npm install 
+	npm install 
 
 #  Custom the configs.
 RUN cd /srv/redoc && \

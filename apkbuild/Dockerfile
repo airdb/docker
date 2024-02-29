@@ -1,5 +1,6 @@
 FROM  airdb/alpine:latest
-MAINTAINER  Dean <Dean@airdb.com>
+LABEL maintainer="https://github.com/airdb"
+
 
 # Build image: 
 # docker build . --rm -t airdb/alpine-nginx -f  nginx.dockerfile
