@@ -1,16 +1,16 @@
 services:
-  alpine:
-    container_name: alpine
+  aliyun:
+    container_name: ubuntu_aliyun
     platform: linux/amd64
     working_dir: /srv/
     build:
       context: .
       dockerfile: Dockerfile
-    image: "airdb/alpine:latest"
+    image: "airdb/ubuntu_aliyun:latest"
     command: sleep 3600
     volumes:
-      - ./:/srv/alpine
+      - ./:/srv/ubuntu
     ports:
-      - "8080:8080"
+      - 8080:8080
     environment:
       - env=test

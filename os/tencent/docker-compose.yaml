@@ -1,18 +1,16 @@
-version: '3'
-
 services:
-  toolbox:
-    container_name: ubuntu
+  aliyun:
+    container_name: ubuntu_tencent
     platform: linux/amd64
     working_dir: /srv/
     build:
       context: .
       dockerfile: Dockerfile
-    image: 'airdb/ubuntu:latest'
+    image: "airdb/ubuntu_tencent:latest"
     command: sleep 3600
     volumes:
       - ./:/srv/ubuntu
     ports:
-      - "8080:8080"
+      - 8080:8080
     environment:
       - env=test

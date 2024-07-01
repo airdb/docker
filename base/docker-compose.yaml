@@ -1,8 +1,7 @@
-version: '3.3'
 services:
   base:
     container_name: base
-    image: 'airdb/base:latest'
+    image: "airdb/base:latest"
     build:
       context: .
       dockerfile: Dockerfile
