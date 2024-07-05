@@ -1,9 +1,8 @@
 # The base dockerfile is common middle layer for docker image.
 # OS Version depends on the Dockerfile which include this common file.
 #
-#FROM ubuntu:22:04
-
-MAINTAINER https://github.com/airdb
+FROM ubuntu:22:04
+LABEL maintainer="Dean <Dean@airdb.com>"
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile

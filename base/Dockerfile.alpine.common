@@ -1,5 +1,5 @@
-#FROM  airdb/alpine
-MAINTAINER  Dean <Dean@airdb.com>
+FROM  airdb/alpine
+LABEL maintainer="Dean <Dean@airdb.com>"
 
 # Build image: 
 # docker build . --rm -t airdb/alpine-nginx -f  nginx.dockerfile
