@@ -1,9 +1,7 @@
-version: '3'
-
 services:
   redis:
     platform: linux/amd64
-    image: 'redis'
+    image: "redis"
     #command: sleep 3600
     command: redis-server --requirepass airdb
     volumes:

@@ -1,9 +1,7 @@
-version: '3'
-
 services:
   dhcp:
     container_name: dhcp
-    image: 'airdb/dhcp:latest'
+    image: "airdb/dhcp:latest"
     platform: linux/amd64
     working_dir: /srv/dhcp
     build:

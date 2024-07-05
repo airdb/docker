@@ -1,9 +1,7 @@
-version: '3'
-
 services:
   redoc:
     container_name: redoc
-    image: 'airdb/redoc:latest'
+    image: "airdb/redoc:latest"
     platform: linux/amd64
     build:
       context: .

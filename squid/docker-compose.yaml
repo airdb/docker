@@ -1,9 +1,7 @@
-version: '3'
-
 services:
   squid:
     container_name: squid
-    image: 'airdb/squid:latest'
+    image: "airdb/squid:latest"
     platform: linux/amd64
     build:
       context: .

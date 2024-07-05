@@ -1,9 +1,7 @@
-version: '3'
-
 services:
   dotnet:
     container_name: dotnet
-    image: 'airdb/dotnet:latest'
+    image: "airdb/dotnet:latest"
     platform: linux/amd64
     build:
       context: .

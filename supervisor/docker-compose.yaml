@@ -1,10 +1,8 @@
-version: '3'
-
 services:
   supervisor:
     container_name: supervisor
     platform: linux/amd64
-    image: 'airdb/supervisor:latest'
+    image: "airdb/supervisor:latest"
     working_dir: /srv/supervisor
     hostname: supervisor
     build:

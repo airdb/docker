@@ -1,14 +1,13 @@
-version: '3'
-
 services:
   wsgi:
     container_name: wsgi
     platform: linux/amd64
-    image: 'airdb/wsgi:latest'
+    image: "airdb/wsgi:latest"
     working_dir: /app/wsgi
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile:
+        Dockerfile
         #command: sleep 3600
     volumes:
       - ./:/app/wsgi/

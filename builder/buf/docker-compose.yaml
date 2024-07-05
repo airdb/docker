@@ -1,8 +1,7 @@
-version: '3.9'
 services:
   buf:
     container_name: buf
-    image: 'airdb/buf:latest'
+    image: "airdb/buf:latest"
     build:
       context: .
       dockerfile: Dockerfile

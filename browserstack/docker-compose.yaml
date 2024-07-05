@@ -1,9 +1,7 @@
-version: '3'
-
 services:
   browserstack:
     container_name: browserstack
-    image: 'airdb/browserstack:latest'
+    image: "airdb/browserstack:latest"
     platform: linux/amd64
     build:
       context: .

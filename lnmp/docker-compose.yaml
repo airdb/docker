@@ -1,10 +1,8 @@
-version: '3'
-
 services:
   lnmp:
     container_name: lnmp
     platform: linux/amd64
-    image: 'airdb/lnmp:latest'
+    image: "airdb/lnmp:latest"
     working_dir: /srv/lnmp
     hostname: lnmp
     build:

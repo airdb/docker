@@ -1,9 +1,7 @@
-version: '3'
-
 services:
   golang:
     container_name: golang
-    image: 'airdb/golang:latest'
+    image: "airdb/golang:latest"
     platform: linux/amd64
     build:
       context: .

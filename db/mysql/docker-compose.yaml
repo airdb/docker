@@ -1,10 +1,8 @@
-version: '3'
-
 services:
   testdb5:
     container_name: testdb5
     platform: linux/amd64
-    image: 'mysql:5'
+    image: "mysql:5"
     command: --init-file /srv/sql/init.sql
     volumes:
       - ./:/srv/sql/:ro
@@ -13,7 +11,7 @@ services:
       - "3306:3306"
     environment:
       TZ: Asia/Shanghai
-      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_HOST: "%"
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: test
       MYSQL_USER: airdb

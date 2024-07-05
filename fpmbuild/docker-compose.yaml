@@ -1,9 +1,7 @@
-version: '3'
-
 services:
   fpmbuild:
     container_name: fpmbuild
-    image: 'airdb/fpmbuild:latest'
+    image: "airdb/fpmbuild:latest"
     platform: linux/amd64
     build:
       context: .

@@ -1,15 +1,14 @@
-version: '3'
-
 services:
   learning:
     container_name: learning
     platform: linux/amd64
-    working_dir: /srv/learn
+    working_dir:
+      /srv/learn
       #hostname: Linux-Learning
     build:
       context: .
       dockerfile: Dockerfile
-    image: 'airdb/learning:latest'
+    image: "airdb/learning:latest"
     command: sleep 1800
     ports:
       - "8080:8080"

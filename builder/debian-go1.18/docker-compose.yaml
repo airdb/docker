@@ -1,8 +1,7 @@
-version: '3.3'
 services:
   builder:
     container_name: builder
-    image: 'airdb/builder:debian-go1.18'
+    image: "airdb/builder:debian-go1.18"
     build:
       context: .
       dockerfile: Dockerfile

@@ -1,12 +1,10 @@
-version: '3'
-
 services:
   nginx:
     platform: linux/amd64
     build:
       context: .
       dockerfile: Dockerfile
-    image: 'airdb/nginx:latest'
+    image: "airdb/nginx:latest"
     volumes:
       - ./:/srv
     environment:

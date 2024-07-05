@@ -1,9 +1,7 @@
-version: '3'
-
 services:
   nodejs:
     container_name: nodejs
-    image: 'airdb/nodejs:latest'
+    image: "airdb/nodejs:latest"
     platform: linux/amd64
     build:
       context: .

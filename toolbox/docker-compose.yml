@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   toolbox:
     container_name: toolbox
@@ -7,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.ubuntu
-    image: 'airdb/toolbox:latest'
+    image: "airdb/toolbox:latest"
     command: sleep 3600
     volumes:
       - ./:/srv/toolbox

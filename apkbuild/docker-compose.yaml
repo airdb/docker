@@ -1,9 +1,7 @@
-version: '3'
-
 services:
   apkbuild:
     container_name: apkbuild
-    image: 'airdb/apkbuild:latest'
+    image: "airdb/apkbuild:latest"
     platform: linux/amd64
     working_dir: /srv/
     build:

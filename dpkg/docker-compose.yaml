@@ -1,9 +1,7 @@
-version: '3'
-
 services:
   dpkg:
     container_name: dpkg
-    image: 'airdb/dpkg:latest'
+    image: "airdb/dpkg:latest"
     platform: linux/amd64
     build:
       context: .

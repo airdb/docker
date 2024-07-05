@@ -1,5 +1,5 @@
 services:
-  aliyun:
+  tencent:
     container_name: ubuntu_tencent
     platform: linux/amd64
     working_dir: /srv/
