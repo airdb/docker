@@ -1,7 +1,7 @@
 services:
-  builder:
-    container_name: builder
-    image: "airdb/builder:debian-go1.18"
+  golang:
+    container_name: golang
+    image: "airdb/golnag:latest"
     build:
       context: .
       dockerfile: Dockerfile

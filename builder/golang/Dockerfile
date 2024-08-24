@@ -1,4 +1,4 @@
-FROM golang:1.18
+FROM golang:1.23.0
 
 LABEL maintainer="airdb team <info@airdb.com>"
 LABEL description="https://github.com/airdb"
