@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -12,7 +12,7 @@ RUN apt update && \
 COPY run-cron /etc/cron.d/run-cron
 
 RUN chmod 0644 /etc/cron.d/run-cron && \
-	crontab /etc/cron.d/run-cron
+    crontab /etc/cron.d/run-cron
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 

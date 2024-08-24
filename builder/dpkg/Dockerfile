@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 LABEL maintainer="airdb team <info@airdb.com>"
 LABEL description="https://github.com/airdb"

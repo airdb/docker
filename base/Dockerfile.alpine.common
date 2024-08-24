@@ -22,7 +22,7 @@ RUN apk add --no-cache --virtual .build-deps \
     git \
     subversion
 
-FROM ubuntu:22:04
+FROM ubuntu:24.04
 MAINTAINER info@airdb.com
 
 # Step 1: List service infomation and choose stable version.

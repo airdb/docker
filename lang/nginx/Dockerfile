@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG OPENSSL_VERSION=OpenSSL_1_1_1-stable
@@ -23,7 +23,7 @@ RUN git clone -b ${OPENSSL_VERSION} --depth=1 https://github.com/openssl/openssl
     git clone -b master https://github.com/ipipdotnet/nginx-ipip-module && \
     git clone -b master https://github.com/openresty/openresty && \
 
-RUN wget https://github.com/chrislim2888/IP2Location-C-Library/archive/master.zip && \
+    RUN wget https://github.com/chrislim2888/IP2Location-C-Library/archive/master.zip && \
     unzip master.zip && \
     cd IP2Location-C-Library-master && \
     autoreconf -i -v --force && \
@@ -36,7 +36,7 @@ RUN wget https://github.com/chrislim2888/IP2Location-C-Library/archive/master.zi
 WORKDIR /build/openresty
 
 RUN make && \
-	cd openresty-1.25.3.1
+    cd openresty-1.25.3.1
 #ADD patches/ /build/nginx-ssl-fingerprint/patches/
 #ADD src/ /build/nginx-ssl-fingerprint/src/
 #ADD config nginx.conf /build/nginx-ssl-fingerprint/
