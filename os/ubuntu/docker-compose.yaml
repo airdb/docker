@@ -1,0 +1,11 @@
+services:
+  ubuntu:
+    container_name: ubuntu
+    image: "airdb/ubuntu:latest"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sleep 3600
+    environment:
+      - env=test
+      - TZ=Asia/Shanghai
