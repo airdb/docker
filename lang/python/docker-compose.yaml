@@ -11,6 +11,6 @@ services:
     volumes:
       - ./:/srv/ubuntu
     ports:
-      - "8080:8080"
+      - "8000:8000"
     environment:
       - env=test

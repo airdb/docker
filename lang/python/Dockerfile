@@ -1,11 +1,6 @@
-FROM ubuntu:24.04
+FROM python:3.12.5
 
 WORKDIR /app/python
-
-RUN apt update && apt install --no-install-recommends -y \
-	python3 \
-	python3-pip && \
-	rm -rf /var/cache/apt/archives /var/lib/apt/lists/*
 
 COPY . /app/python/
 
