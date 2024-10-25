@@ -1,35 +1,18 @@
-FROM alpine:3.19 as builder
-
-WORKDIR /build
-RUN wget --progress=dot:giga \
-    http://nl.alpinelinux.org/alpine/latest-stable/releases/x86_64/alpine-minirootfs-3.19.0-x86_64.tar.gz && \
-    tar xvf alpine-minirootfs-3.19.0-x86_64.tar.gz
-
-
-FROM scratch
-
-LABEL issue="Alpine minirootfs lastet stable 3.19.0"
-LABEL buildtime ="2022-1209_19:50"
+FROM alpine:3.20
 
 LABEL maintainer="airdb team <info@airdb.com>"
-LABEL description="https://github.com/airdb"
+LABEL description="https://github.com/airdb/docker"
 
-ENV OS_NAME alpine
-ENV OS_VERSION 3.19
-ENV RUNNING_CONTEXT docker
-
-COPY --from=builder /build /
+ENV AIRDB_RUNNING_CONTEXT docker
 
 RUN apk add --no-cache --virtual .build-deps \
-    tzdata tar gzip bash bash-doc bash-completion \
-    bash \
-    vim \
-    git
+    tzdata tar gzip bash bash-doc bash-completion ca-certificates
 
 # Setup bash as default shell.
-RUN cp /usr/share/zoneinfo/Asia/Singapore /etc/localtime && \
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    echo "export PS1='\H@alpine \w\\$ '" >> /etc/profile &&  \
     sed -i '/root/s/ash/bash/g' /etc/passwd
 
-WORKDIR /app
+WORKDIR /opt
 
 CMD ["/bin/bash", "--login"]
