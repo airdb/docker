@@ -2,6 +2,7 @@ SERVICE := golang
 
 up:
 	docker compose up -d --build --force-recreate
+
 build:
 	docker compose build --no-cache
 
@@ -19,5 +20,6 @@ ps:
 
 log logs:
 	docker compose logs
+
 bash:
-	docker compose exec ${SERVICE} bash
+	docker compose exec ${SERVICE} bash --login
