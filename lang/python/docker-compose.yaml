@@ -3,7 +3,7 @@ services:
     container_name: python
     platform: linux/amd64
     image: "airdb/python:latest"
-    working_dir: /app/python
+    working_dir: /app/
     build:
       context: .
       dockerfile: Dockerfile
