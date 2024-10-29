@@ -38,4 +38,4 @@ rm: stop ## Stop and remove stopped service containers
 	docker compose rm ${SERVICE}
 
 bash: ## Execute a command in a running container
-	docker compose exec ${SERVICE} bash
+	docker compose exec ${SERVICE} bash --login

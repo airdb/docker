@@ -1,13 +1,15 @@
 FROM ubuntu:24.04
+
 LABEL maintainer="Dean <Dean@airdb.com>"
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 ENV RUNNING_CONTEXT "docker"
-ENV echo "export RUNNING_CONTEXT=docker" >> /etc/profile
+RUN echo "export RUNNING_CONTEXT=docker" >> /etc/profile
 
-RUN echo "export PS1='[\H \W]\\$ '" >> /root/.profile
+RUN echo "export PS1='ubuntu@\H \w\\$ '" >> /root/.profile
+
 
 
 WORKDIR /srv
