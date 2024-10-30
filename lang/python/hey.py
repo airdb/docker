@@ -9,12 +9,27 @@ def index():
     return f'Your User Agent is: {user_agent}'
 
 @app.route('/cmd', methods=['POST'])
+def cmd():
+    cmd = request.json['cmd']  # Access JSON data
     # Access POST data
     #name = request.form['name']  # Access a form field
-    cmd = request.json['cmd']  # Access JSON data
 
     # Process the data (e.g., store in a database)
     print(f"Received name: email: {cmd}")
+
+    # Return a response
+    return "Data processed successfully!"
+
+@app.route('/track', methods=['POST'])
+def track():
+    # Access POST data
+    #name = request.form['name']  # Access a form field
+    data = request.get_json()
+    print(f"Received data", data)
+
+    #cmd = request.json['company_info']  # Access JSON data
+    # Process the data (e.g., store in a database)
+    #print(f"Received name: ", data.item)
 
     # Return a response
     return "Data processed successfully!"
