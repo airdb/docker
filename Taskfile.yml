@@ -40,3 +40,10 @@ tasks:
       - echo
       - |
         task --list
+
+  greet:
+    desc: NAME=dean task greet
+    cmds:
+      - echo "Hello, {{.NAME}}"
+    vars:
+      NAME: "{{.NAME | default \"World\" }}"
