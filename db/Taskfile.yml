@@ -1,0 +1,29 @@
+# https://taskfile.dev
+
+version: '3'
+
+includes:
+  mysql:
+    taskfile: ./mysql/Taskfile.yml
+    dir: ./mysql/
+
+  mysql-8:
+    taskfile: ./mysql-8/Taskfile.yml
+    dir: ./mysql-8/
+
+  postgres:
+    taskfile: ./postgres/Taskfile.yml
+    dir: ./postgres/
+    
+  redis:
+    taskfile: ./redis/Taskfile.yml
+    dir: ./redis/
+
+tasks:
+  default:
+    desc: List tasks
+    silent: true
+    cmds:
+      - echo "Welcome to use go-task!"
+      - echo
+      - task --list

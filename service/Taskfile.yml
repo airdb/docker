@@ -1,0 +1,17 @@
+# https://taskfile.dev
+
+version: '3'
+
+includes:
+  supervisor:
+    taskfile: ./supervisor/Taskfile.yml
+    dir: ./supervisor/
+
+tasks:
+  default:
+    desc: List tasks
+    silent: true
+    cmds:
+      - echo "Welcome to use go-task!"
+      - echo
+      - task --list

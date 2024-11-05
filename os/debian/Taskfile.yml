@@ -1,0 +1,62 @@
+version: '3'
+
+vars:
+  SERVICE: debian
+
+tasks:
+  default:
+    desc: Show help messages
+    silent: true
+    cmds:
+      - echo "Welcome to use go-task!"
+      - echo
+      - |
+        echo "Available tasks:"
+        task --list | awk 'NR>1 {print "  " $0}'
+
+  up:
+    desc: Create and start containers
+    cmds:
+      - docker compose up -d --build --force-recreate
+
+  build:
+    desc: Build or rebuild docker image
+    cmds:
+      - docker compose build --no-cache
+
+  start:
+    desc: Start services
+    cmds:
+      - docker compose start
+
+  stop:
+    desc: Stop services
+    cmds:
+      - docker compose stop
+
+  restart:
+    desc: Restart containers
+    cmds:
+      - docker compose restart
+
+  ps:
+    desc: List containers
+    cmds:
+      - docker compose ps
+
+  logs:
+    desc: View output from containers
+    cmds:
+      - docker compose logs
+    aliases: [log]
+
+  rm:
+    desc: Stop and remove stopped service containers
+    deps: [stop]
+    cmds:
+      - docker compose rm {{.SERVICE}}
+
+  bash:
+    desc: Execute a command in a running container
+    cmds:
+      - docker compose exec {{.SERVICE}} bash --login 

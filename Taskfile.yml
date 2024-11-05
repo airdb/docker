@@ -1,0 +1,42 @@
+version: '3'
+
+includes:
+  os:
+    desc: os
+    taskfile: ./os/Taskfile.yml
+    dir: ./os/
+    optional: true
+
+  lang:
+    desc: lang
+    taskfile: ./lang/Taskfile.yml
+    dir: ./lang/
+    optional: true
+
+  db:
+    desc: db
+    taskfile: ./db/Taskfile.yml
+    dir: ./db/
+    optional: true
+
+  service:
+    desc: service
+    taskfile: ./service/Taskfile.yml
+    dir: ./service/
+    optional: true
+
+  learn:
+    desc: learn
+    taskfile: ./learn/Taskfile.yml
+    dir: ./learn/
+    optional: true
+
+tasks:
+  default:
+    desc: Show help messages
+    silent: true
+    cmds:
+      - echo "Welcome to use go-task!"
+      - echo
+      - |
+        task --list

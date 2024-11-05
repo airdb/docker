@@ -1,0 +1,33 @@
+# https://taskfile.dev
+
+version: '3'
+
+includes:
+  debain:
+    taskfile: ./debian/Taskfile.yml
+    dir: ./debian/
+
+  ubuntu:
+    taskfile: ./ubuntu/Taskfile.yml
+    dir: ./ubuntu/
+
+  alpine:
+    taskfile: ./alpine/Taskfile.yml
+    dir: ./alpine/
+
+  aliyun:
+    taskfile: ./aliyun/Taskfile.yml
+    dir: ./aliyun/
+
+  tencent:
+    taskfile: ./tencent/Taskfile.yml
+    dir: ./tencent/
+
+tasks:
+  default:
+    desc: List tasks
+    silent: true
+    cmds:
+      - echo "Welcome to use go-task!"
+      - echo
+      - task --list

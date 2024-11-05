@@ -1,0 +1,32 @@
+# https://taskfile.dev
+
+version: '3'
+
+includes:
+  dotnet:
+    taskfile: ./dotnet/Taskfile.yml
+    dir: ./dotnet/
+  golang:
+    taskfile: ./golang/Taskfile.yml
+    dir: ./golang/
+
+  nginx:
+    taskfile: ./nginx/Taskfile.yml 
+    dir: ./nginx/
+
+  nodejs:
+    taskfile: ./nodejs/Taskfile.yml
+    dir: ./nodejs/
+
+  python:
+    taskfile: ./python/Taskfile.yml
+    dir: ./python/
+
+tasks:
+  default:
+    desc: List tasks
+    silent: true
+    cmds:
+      - echo "Welcome to use go-task!"
+      - echo
+      - task --list

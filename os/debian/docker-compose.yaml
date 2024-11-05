@@ -1,0 +1,11 @@
+services:
+  debian:
+    container_name: debian
+    image: "airdb/debian:latest"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sleep 3600
+    environment:
+      - env=test
+      - TZ=Asia/Shanghai
