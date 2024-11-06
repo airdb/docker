@@ -1,30 +1,5 @@
-# https://taskfile.dev
-
 version: '3'
-
-includes:
-#  debain:
-#    taskfile: ./debian/Taskfile.yml
-#    dir: ./debian/
-#
-#  ubuntu:
-#    taskfile: ./ubuntu/Taskfile.yml
-#    dir: ./ubuntu/
-#
-#  alpine:
-#    taskfile: ./alpine/Taskfile.yml
-#    dir: ./alpine/
-#
-#  aliyun:
-#    taskfile: ./aliyun/Taskfile.yml
-#    dir: ./aliyun/
-#
-#  tencent:
-#    taskfile: ./tencent/Taskfile.yml
-#    dir: ./tencent/
-
-#vars:
-#  NAME1: alpine
+# https://github.com/airdb/docker
 
 vars: 
   NAME: "{{.NAME | default \"alpine\" }}"
@@ -33,15 +8,17 @@ vars:
 tasks:
   default:
     aliases: ["help"]
-    desc: Systems lists - {{.SYSTEMS}}
+    desc: Systems lists - NAME in {{.SYSTEMS}}
     silent: true
     cmds:
       - echo "Welcome to airdb Docker OS Management!"
       - echo "Documentation https://github.com/airdb/docker"
       - echo "Maintained by https://airdb.team"
       - echo
+      - echo "Usage:"
+      - echo "  [NAME=ubuntu] task [flag]"
+      - echo
       - task --list --sort=none
-      - echo 
       - echo 
       - echo "Running system..."
       - docker compose ps
@@ -51,6 +28,10 @@ tasks:
     cmds:
       - echo {{.NAME}}
       - docker compose up -d {{.NAME}}
+  down:
+    desc: System {{.NAME}} - Stop and remove
+    cmds:
+      - docker compose down {{.NAME}}
 
   build:
     desc: System {{.NAME}} - Build or rebuild system docker image

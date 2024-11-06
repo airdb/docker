@@ -1,11 +1,30 @@
 version: '3'
 
+
+tasks:
+  default:
+    desc: Show help messages
+    silent: true
+    cmds:
+      - echo "Welcome to use go-task!"
+      - echo
+      - |
+        task --list-all --sort=none
+
+  greet:
+    desc: NAME=dean task greet
+    cmds:
+      - echo "Hello, {{.NAME}}"
+    vars:
+      NAME: "{{.NAME | default \"World\" }}"
+
 includes:
   os:
     desc: os
     taskfile: ./os/Taskfile.yml
     dir: ./os/
     optional: true
+    sort: none
 
   lang:
     desc: lang
@@ -30,20 +49,3 @@ includes:
     taskfile: ./learn/Taskfile.yml
     dir: ./learn/
     optional: true
-
-tasks:
-  default:
-    desc: Show help messages
-    silent: true
-    cmds:
-      - echo "Welcome to use go-task!"
-      - echo
-      - |
-        task --list
-
-  greet:
-    desc: NAME=dean task greet
-    cmds:
-      - echo "Hello, {{.NAME}}"
-    vars:
-      NAME: "{{.NAME | default \"World\" }}"
