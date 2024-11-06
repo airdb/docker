@@ -3,32 +3,88 @@
 version: '3'
 
 includes:
-  debain:
-    taskfile: ./debian/Taskfile.yml
-    dir: ./debian/
+#  debain:
+#    taskfile: ./debian/Taskfile.yml
+#    dir: ./debian/
+#
+#  ubuntu:
+#    taskfile: ./ubuntu/Taskfile.yml
+#    dir: ./ubuntu/
+#
+#  alpine:
+#    taskfile: ./alpine/Taskfile.yml
+#    dir: ./alpine/
+#
+#  aliyun:
+#    taskfile: ./aliyun/Taskfile.yml
+#    dir: ./aliyun/
+#
+#  tencent:
+#    taskfile: ./tencent/Taskfile.yml
+#    dir: ./tencent/
 
-  ubuntu:
-    taskfile: ./ubuntu/Taskfile.yml
-    dir: ./ubuntu/
+#vars:
+#  NAME1: alpine
 
-  alpine:
-    taskfile: ./alpine/Taskfile.yml
-    dir: ./alpine/
-
-  aliyun:
-    taskfile: ./aliyun/Taskfile.yml
-    dir: ./aliyun/
-
-  tencent:
-    taskfile: ./tencent/Taskfile.yml
-    dir: ./tencent/
-
+vars: 
+  NAME: "{{.NAME | default \"alpine\" }}"
+  SYSTEMS: ["alpine", "debian", "ubuntu", "tencent", "aliyun"]
 
 tasks:
   default:
-    desc: List tasks
+    aliases: ["help"]
+    desc: Systems lists - {{.SYSTEMS}}
     silent: true
     cmds:
-      - echo "Welcome to use go-task!"
+      - echo "Welcome to airdb Docker OS Management!"
+      - echo "Documentation https://github.com/airdb/docker"
+      - echo "Maintained by https://airdb.team"
       - echo
-      - task --list
+      - task --list --sort=none
+      - echo 
+      - echo 
+      - echo "Running system..."
+      - docker compose ps
+
+  up:
+    desc: System {{.NAME}} - Create and start
+    cmds:
+      - echo {{.NAME}}
+      - docker compose up -d {{.NAME}}
+
+  build:
+    desc: System {{.NAME}} - Build or rebuild system docker image
+    cmds:
+      - docker compose build {{.NAME}} --no-cache
+
+  start:
+    desc: System {{.NAME}} - Start
+    cmds:
+      - docker compose start {{.NAME}}
+
+  stop:
+    desc: System {{.NAME}} - Stop
+    cmds:
+      - docker compose stop {{.NAME}}
+
+  restart:
+    desc: System {{.NAME}} - Restart
+    cmds:
+      - docker compose restart {{.NAME}}
+
+  logs:
+    aliases: [log]
+    desc: System {{.NAME}} - View logs
+    cmds:
+      - docker compose logs {{.NAME}}
+
+  rm:
+    desc: System {{.NAME}} - Remove
+    deps: [stop]
+    cmds:
+      - docker compose rm {{.NAME}}
+
+  bash:
+    desc: System {{.NAME}} - Enter into system
+    cmds:
+      - docker compose exec {{.NAME}} bash --login 

@@ -1,0 +1,79 @@
+services:
+  alpine:
+    container_name: alpine
+    platform: linux/amd64
+    working_dir: /srv/
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: "airdb/alpine:latest"
+    command: sleep 3600
+    volumes:
+      - ./:/opt/alpine
+    #ports:
+    #  - "8080:8080"
+    environment:
+      - env=test
+    profiles:
+      - alpine
+
+  debian:
+    container_name: debian
+    image: "airdb/debian:latest"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sleep 3600
+    environment:
+      - env=test
+      - TZ=Asia/Shanghai
+    profiles:
+      - debian
+
+  ubuntu:
+    container_name: ubuntu
+    image: "airdb/ubuntu:latest"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sleep 3600
+    environment:
+      - env=test
+      - TZ=Asia/Shanghai
+    profiles:
+      - ubuntu
+
+  tencent:
+    container_name: tencent
+    platform: linux/amd64
+    working_dir: /srv/
+    build:
+      context: ./tencent/
+      dockerfile: Dockerfile
+    image: "airdb/tencent:latest"
+    command: sleep 3600
+    volumes:
+      - ./:/srv/ubuntu
+    #ports:
+    #  - 8080:8080
+    environment:
+      - env=test
+    profiles:
+      - tencent
+  aliyun:
+    container_name: aliyun
+    platform: linux/amd64
+    working_dir: /srv/
+    build:
+      context: ./aliyun/
+      dockerfile: Dockerfile
+    image: "airdb/aliyun:latest"
+    command: sleep 3600
+    volumes:
+      - ./:/srv/ubuntu
+    #ports:
+    #  - 8080:8080
+    environment:
+      - env=test
+    profiles:
+      - aliyun
