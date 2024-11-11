@@ -1,0 +1,16 @@
+services:
+  workerd:
+    container_name: workerd
+    image: "airdb/workerd:latest"
+    working_dir: /worker
+    hostname: workerd
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #command: sleep 3600
+    volumes:
+      - ./:/srv/workerd
+    ports:
+      - "8080:8080"
+    environment:
+      - env=test
