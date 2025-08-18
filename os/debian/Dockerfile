@@ -1,4 +1,4 @@
-FROM debian:12.7
+FROM debian:13
 LABEL maintainer="airdb team <info@airdb.com>"
 
 ENV NOTVISIBLE "in users profile"
@@ -21,4 +21,4 @@ RUN apt update && \
 
 ## Install network releated deb package.
 RUN apt install -y --reinstall ca-certificates && \
-	apt install -y net-tools iproute2 iputils-ping telnet nmap
+	apt install -y net-tools iproute2 iputils-ping telnet nmap netcat-openbsd

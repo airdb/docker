@@ -23,4 +23,4 @@ RUN apt update && \
 
 ## Install network releated deb package.
 RUN apt install -y --reinstall ca-certificates && \
-	apt install -y net-tools iproute2 iputils-ping telnet nmap
+	apt install -y net-tools iproute2 iputils-ping telnet nmap netcat-openbsd

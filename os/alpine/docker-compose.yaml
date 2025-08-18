@@ -1,7 +1,8 @@
 services:
   alpine:
     container_name: alpine
-    platform: linux/amd64
+    #platform: linux/arm64
+    #platform: linux/amd64
     working_dir: /srv/
     build:
       context: .
