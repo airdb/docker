@@ -1,8 +1,8 @@
-FROM ubuntu:24.04
+FROM debian:13
 
 ARG DEBIAN_FRONTEND=noninteractive
-ARG OPENSSL_VERSION=OpenSSL_1_1_1-stable
-ARG NGINX_VERSION=release-1.23.1
+ARG OPENSSL_VERSION=openssl-3.5.2
+ARG NGINX_VERSION=release-1.29.1
 
 RUN apt update && \
     apt install --no-install-recommends -y \
@@ -17,26 +17,28 @@ RUN apt update && \
 
 WORKDIR /build
 
-RUN git clone -b ${OPENSSL_VERSION} --depth=1 https://github.com/openssl/openssl && \
-    git clone -b ${NGINX_VERSION} --depth=1 https://github.com/nginx/nginx && \
-    git clone -b master  https://github.com/ip2location/ip2location-nginx && \
-    git clone -b master https://github.com/ipipdotnet/nginx-ipip-module && \
-    git clone -b master https://github.com/openresty/openresty && \
+#RUN git clone --depth=1 -b ${OPENSSL_VERSION} https://github.com/openssl/openssl && \
+#    git clone --depth=1 -b ${NGINX_VERSION} https://github.com/nginx/nginx && \
+#    git clone --depth=1 -b v0.1.1 https://github.com/nginx/nginx-acme && \
+#    git clone --depth=1 -b master  https://github.com/ip2location/ip2location-nginx && \
+#    git clone --depth=1 -b master https://github.com/ipipdotnet/nginx-ipip-module && \
+#    git clone --depth=1 -b master https://github.com/openresty/openresty
+#
+#    RUN wget https://github.com/chrislim2888/IP2Location-C-Library/archive/master.zip && \
+#    unzip master.zip && \
+#    cd IP2Location-C-Library-master && \
+#    autoreconf -i -v --force && \
+#    ./configure && \
+#    make
+#    make && \
+#    make install
 
-    RUN wget https://github.com/chrislim2888/IP2Location-C-Library/archive/master.zip && \
-    unzip master.zip && \
-    cd IP2Location-C-Library-master && \
-    autoreconf -i -v --force && \
-    ./configure && \
-    make && \
-    make install
 
 
+#WORKDIR /build/openresty
 
-WORKDIR /build/openresty
-
-RUN make && \
-    cd openresty-1.25.3.1
+#RUN make && \
+#    cd openresty-1.25.3.1
 #ADD patches/ /build/nginx-ssl-fingerprint/patches/
 #ADD src/ /build/nginx-ssl-fingerprint/src/
 #ADD config nginx.conf /build/nginx-ssl-fingerprint/

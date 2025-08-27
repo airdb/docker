@@ -1,41 +1,41 @@
+# LABEL Maintainer="airdb team <info@airdb.com>"  Description="https://github.com/airdb"
+
 SERVICE := nginx
 
 all: help
 
 help: ## Show help messages
-	@echo "Container - ${SERVICE} "
+	@echo "Container - ${SERVICE}"
 	@echo
 	@echo "Usage:\tmake COMMAND"
 	@echo
 	@echo "Commands:"
 	@sed -n '/##/s/\(.*\):.*##/  \1#/p' ${MAKEFILE_LIST} | grep -v "MAKEFILE_LIST" | column -t -c 2 -s '#'
 
-up:
-	docker compose up -d --build --force-recreate
+up: ## Create and start containers
+	docker compose up -d --force-recreate
 
-build:
-	docker compose build --no-cache
+build: ## Build or rebuild docker image
+	docker compose build
+	#docker compose build --no-cache
 
-start:
+start: ## Start services
 	docker compose start
 
-stop:
+stop: ## Stop services
 	docker compose stop
 
-restart:
+restart: ## Restart containers
 	docker compose restart
 
-ps:
+ps: ## List containers
 	docker compose ps
 
-log logs:
+log logs: ## View output from containers
 	docker compose logs
 
-logf:
-	docker compose logs -f
-
-rm: stop
+rm: stop ## Stop and remove stopped service containers
 	docker compose rm ${SERVICE}
 
-bash:
-	docker compose exec ${SERVICE} bash
+bash: ## Execute a command in a running container
+	docker compose exec ${SERVICE} bash --login
