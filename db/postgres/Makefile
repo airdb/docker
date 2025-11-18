@@ -26,3 +26,6 @@ rm: stop
 
 bash:
 	docker compose exec ${SERVICE} bash
+
+psql:
+	docker compose exec ${SERVICE} psql -Upostgres
