@@ -2,7 +2,7 @@ services:
   golang:
     container_name: golang
     image: "airdb/golang:latest"
-    platform: linux/amd64
+    #platform: linux/amd64
     build:
       context: .
       dockerfile: Dockerfile

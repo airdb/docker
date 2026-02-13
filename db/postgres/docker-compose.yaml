@@ -12,6 +12,7 @@ services:
     volumes:
       - pgsql:/var/lib/postgresql/18/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./ipdb:/opt
 volumes:
   pgsql:
     driver: local

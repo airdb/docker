@@ -1,4 +1,4 @@
-FROM alpine:3.22
+FROM alpine:3.23
 
 LABEL maintainer="airdb team <info@airdb.com>"
 LABEL description="https://github.com/airdb/docker"
