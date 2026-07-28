@@ -1,0 +1,19 @@
+services:
+  ubuntu-systemd:
+    platform: linux/amd64
+    container_name: ubuntu-systemd
+    image: "airdb/ubuntu-systemd:latest"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - env=test
+      - TZ=Asia/Shanghai
+    privileged: true
+    tmpfs:
+      - /run
+      - /tmp
+    command: ["/lib/systemd/systemd", "--container", "--no-kmsg-logging", "--skip-proc-mount" ]
+    tty: true
+    stop_signal: SIGRTMIN+3
+    stdin_open: true
