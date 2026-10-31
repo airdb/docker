@@ -22,3 +22,10 @@ RUN apt update && \
 ## Install network releated deb package.
 RUN apt install -y --reinstall ca-certificates && \
 	apt install -y net-tools iproute2 iputils-ping telnet nmap netcat-openbsd
+
+RUN echo 'alias cu="t1=\$(stat -c %Y /proc/1); t2=\$(date +%s); diff=\$((t2 - t1)); echo \"Start Time: \$(stat -c '\''%y'\'' /proc/1)\"; echo \"Uptime: \$((diff / 86400))d \$(((diff % 86400) / 3600))h \$(((diff % 3600) / 60))m \$((diff % 60))s\""' >> ~/.bashrc
+
+RUN apt install -y procps apt-file
+
+RUN apt-file update && \
+    apt-file list procps | grep bin
