@@ -1,0 +1,15 @@
+services:
+  web-python:
+    container_name: web-python
+    image: "airdb/web-python:latest"
+    #platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #command: sleep 3600
+    volumes:
+      - ./:/srv/web-python
+    ports:
+      - "8000:8080"
+    environment:
+      - env=test
